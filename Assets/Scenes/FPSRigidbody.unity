@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 202471125}
   - component: {fileID: 202471124}
   m_Layer: 0
-  m_Name: FPSPlayer
+  m_Name: FPSRbPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

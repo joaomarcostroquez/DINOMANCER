@@ -1057,7 +1057,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkingSpeed: 5
+  runningSpeed: 10
   _camera: {fileID: 1671064541}
+  runToggle: 0
+  stoppedRunningThreshold: 0.01
 --- !u!1 &884143087
 GameObject:
   m_ObjectHideFlags: 0

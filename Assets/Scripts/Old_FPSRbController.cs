@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FPSController : MonoBehaviour
+public class Old_FPSRbController : MonoBehaviour
 {
     [SerializeField]
     Camera _camera;
@@ -20,6 +20,7 @@ public class FPSController : MonoBehaviour
     private void Update()
     {
         movementInput.Set(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        //transform.rotation = Quaternion.Euler(0, _camera.transform.rotation.eulerAngles.y, 0);
     }
 
     private void FixedUpdate()

@@ -1658,6 +1658,7 @@ MonoBehaviour:
   targetPoints:
   - {x: -2, y: 1, z: 5}
   - {x: 2, y: 1, z: 5}
+  - {x: 2, y: 3, z: 5}
   movementSpeed: 3
   rotationSpeed: {x: 30, y: 60, z: 0}
 --- !u!65 &1848515017

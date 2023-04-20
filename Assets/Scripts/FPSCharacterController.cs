@@ -34,6 +34,10 @@ public class FPSCharacterController : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
 
         movementSpeed = walkingSpeed;
+
+        //lock and hide cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void Update()

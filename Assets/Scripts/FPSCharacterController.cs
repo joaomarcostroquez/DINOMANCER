@@ -4,24 +4,33 @@ using UnityEngine;
 
 public class FPSCharacterController : MonoBehaviour
 {
-    [SerializeField]
-    private float walkingSpeed = 5f;
-    [SerializeField]
-    private float runningSpeed = 10f;
-    [SerializeField]
-    private Camera _camera;
-    [SerializeField]
+    [Header("Basic movement settings")]
+    [SerializeField] private float walkingSpeed = 5f;
+    [SerializeField] private float runningSpeed = 10f;
+
+    [Header("Run toggling method")]
     [Tooltip("If checked, shift will toggle running. If unchecked, player must hold shift to run.")]
-    public bool runToggle = true;
-    [SerializeField]
+    [SerializeField] public bool runToggle = true;
     [Tooltip("If runToggle is checked, this is the threshold to automatically switch back to walking when the player stops.")]
-    private float stoppedRunningThreshold = 0.01f;
+    [SerializeField] private float stoppedRunningThreshold = 0.01f;
+
+    [Header("Ground check")]
+    [SerializeField] private LayerMask groundLayers;
+    [SerializeField] private Vector3 checkOffset;
+    [SerializeField] private float checkSphereRadius;
+    [SerializeField] private float normalThreshold;
+
+    [Header("Other")]
+    [SerializeField] private Camera _camera;
 
     private CharacterController _characterController;
     private Vector3 movementInput, treatedInput;
-
     private float movementSpeed;    
     private bool isRunning = false;
+
+    private float verticalVelocity;
+    private float groundAngle;
+    private Vector3 checkSpherePosition;
 
     private void Start()
     {

@@ -15,6 +15,8 @@ public class FPSCharacterController : MonoBehaviour
     [SerializeField] private float stoppedRunningThreshold = 0.01f;
 
     [Header("Jump and Gravity")]
+    [SerializeField] private float jumpHeight = 2f;
+    [SerializeField] private float jumpRequestBuffer = 0.2f;
     [SerializeField] private float defaultGravity = -16f;
     [SerializeField] private float maximumFallSpeed = -32f;
 
@@ -32,7 +34,8 @@ public class FPSCharacterController : MonoBehaviour
     private Vector3 movementInput, treatedInput;
     private float movementSpeed;    
     private bool isRunning = false;
-
+    private bool jumpRequest = false;
+    private bool isJUmping = false;
     private float verticalVelocity;
     private float groundAngle;
     private bool isGrounded;
@@ -59,19 +62,20 @@ public class FPSCharacterController : MonoBehaviour
     {
         RotateWithCamera();
         GetInput();
+        TreatMovementInput();
+        ToggleRun();
         GroundCheck();
+        Jump();
         ApplyGravity();
-        HorizontalMovement();
-
-        
+        HorizontalMovement();        
     }
 
     private void GetInput()
     {
-        movementInput.Set(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-        TreatMovementInput();
+        if (Input.GetButtonDown("Jump"))
+            StartCoroutine(RequestJump());
 
-        ToggleRun();
+        movementInput.Set(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
     }
 
     private void ToggleRun()
@@ -123,6 +127,26 @@ public class FPSCharacterController : MonoBehaviour
         _characterController.Move(treatedInput * movementSpeed * Time.deltaTime);
     }
 
+    private void Jump()
+    {
+        if (isGrounded)
+        {
+            if (jumpRequest)
+            {
+                verticalVelocity = Mathf.Sqrt(jumpHeight * -2f * defaultGravity);
+
+                jumpRequest = false;
+                isJUmping = true;
+
+                Debug.Log("Jump");
+            }
+        }
+        else
+        {
+            isJUmping = false;
+        }
+    }
+
     private void RotateWithCamera()
     {
         transform.rotation = Quaternion.Euler(0, _camera.transform.rotation.eulerAngles.y, 0);
@@ -148,7 +172,8 @@ public class FPSCharacterController : MonoBehaviour
                 if(groundAngle > 180f + normalThreshold || groundAngle < 180f - normalThreshold)
                 {
                     isGrounded = true;
-                    Debug.Log("isGrounded");
+
+                    //Debug.Log("isGrounded");
                 }
             }
     }
@@ -157,10 +182,24 @@ public class FPSCharacterController : MonoBehaviour
     {
         if (!isGrounded)
             verticalVelocity = Mathf.Clamp(verticalVelocity + defaultGravity * Time.deltaTime, maximumFallSpeed, Mathf.Infinity);
-        else
-            verticalVelocity = -1f;
+        else if(!isJUmping)
+            verticalVelocity = -2f;
 
         _characterController.Move(Vector3.up * verticalVelocity * Time.deltaTime);
-        Debug.Log(verticalVelocity);
+
+        //Debug.Log(verticalVelocity);
+    }
+
+    private IEnumerator RequestJump()
+    {
+        StopCoroutine(RequestJump());
+
+        jumpRequest = true;
+
+        yield return new WaitForSeconds(jumpRequestBuffer);
+
+        jumpRequest = false;
+
+        yield return null;
     }
 }

@@ -67,7 +67,7 @@ public class FPSCharacterController : MonoBehaviour
         GroundCheck();
         Jump();
         ApplyGravity();
-        HorizontalMovement();        
+        HorizontalMovement();
     }
 
     private void GetInput()

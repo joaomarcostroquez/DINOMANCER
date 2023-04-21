@@ -14,6 +14,10 @@ public class FPSCharacterController : MonoBehaviour
     [Tooltip("If runToggle is checked, this is the threshold to automatically switch back to walking when the player stops.")]
     [SerializeField] private float stoppedRunningThreshold = 0.01f;
 
+    [Header("Jump and Gravity")]
+    [SerializeField] private float defaultGravity = -16f;
+    [SerializeField] private float maximumFallSpeed = -32f;
+
     [Header("Ground check")]
     [SerializeField] private LayerMask groundLayers;
     [SerializeField] private Vector3 checkOffset;
@@ -53,15 +57,13 @@ public class FPSCharacterController : MonoBehaviour
 
     private void Update()
     {
-        GroundCheck();
         RotateWithCamera();
         GetInput();
+        GroundCheck();
+        ApplyGravity();
         HorizontalMovement();
 
-        if (!isGrounded)
-            _characterController.Move(Vector3.down * 5 * Time.deltaTime);
-        else
-            _characterController.Move(Vector3.down * 1 * Time.deltaTime);
+        
     }
 
     private void GetInput()
@@ -149,5 +151,16 @@ public class FPSCharacterController : MonoBehaviour
                     Debug.Log("isGrounded");
                 }
             }
+    }
+
+    private void ApplyGravity()
+    {
+        if (!isGrounded)
+            verticalVelocity = Mathf.Clamp(verticalVelocity + defaultGravity * Time.deltaTime, maximumFallSpeed, Mathf.Infinity);
+        else
+            verticalVelocity = -1f;
+
+        _characterController.Move(Vector3.up * verticalVelocity * Time.deltaTime);
+        Debug.Log(verticalVelocity);
     }
 }

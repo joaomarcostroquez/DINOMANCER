@@ -18,6 +18,7 @@ public class FPSCharacterController : MonoBehaviour
     [SerializeField] private LayerMask groundLayers;
     [SerializeField] private Vector3 checkOffset;
     [SerializeField] private float checkSphereRadius;
+    [Tooltip("Value used to detect if collided with ground or walls.")]
     [SerializeField] private float normalThreshold;
 
     [Header("Other")]
@@ -30,6 +31,7 @@ public class FPSCharacterController : MonoBehaviour
 
     private float verticalVelocity;
     private float groundAngle;
+    private bool isGrounded;
     private Vector3 checkSpherePosition;
 
     private void Start()
@@ -51,9 +53,15 @@ public class FPSCharacterController : MonoBehaviour
 
     private void Update()
     {
+        GroundCheck();
         RotateWithCamera();
         GetInput();
         HorizontalMovement();
+
+        if (!isGrounded)
+            _characterController.Move(Vector3.down * 5 * Time.deltaTime);
+        else
+            _characterController.Move(Vector3.down * 1 * Time.deltaTime);
     }
 
     private void GetInput()
@@ -116,5 +124,30 @@ public class FPSCharacterController : MonoBehaviour
     private void RotateWithCamera()
     {
         transform.rotation = Quaternion.Euler(0, _camera.transform.rotation.eulerAngles.y, 0);
+    }
+
+    private void GroundCheck()
+    {
+        Collider[] colliders;
+
+        checkSpherePosition = transform.position + checkOffset;
+        
+        colliders = Physics.OverlapSphere(checkSpherePosition, checkSphereRadius, groundLayers);
+
+        if (colliders.Length <= 0)
+            isGrounded = false;
+        else
+            foreach(Collider col in colliders)
+            {
+                Vector3 colliderPosition = col.gameObject.transform.position;
+
+                //check if player collided with ground instead of vertical walls based on angle of collision
+                groundAngle = Vector3.Angle(checkSpherePosition, colliderPosition);
+                if(groundAngle > 180f + normalThreshold || groundAngle < 180f - normalThreshold)
+                {
+                    isGrounded = true;
+                    Debug.Log("isGrounded");
+                }
+            }
     }
 }

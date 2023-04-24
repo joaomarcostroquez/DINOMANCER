@@ -18,7 +18,6 @@ public class FPSCharacterController : MonoBehaviour
     [SerializeField] private float jumpHeight = 2f;
     [SerializeField] private float jumpRequestBuffer = 0.2f;
     [SerializeField] private float defaultGravity = -16f;
-    [SerializeField] private float jumpGravityMultiplier = 0.5f;
     [SerializeField] private float maximumFallSpeed = -32f;
 
     [Header("Ground check")]
@@ -71,7 +70,6 @@ public class FPSCharacterController : MonoBehaviour
         Jump();
         ApplyGravity();
         HorizontalMovement();
-        Debug.Log(currentGravity);
     }
 
     private void GetInput()
@@ -137,8 +135,6 @@ public class FPSCharacterController : MonoBehaviour
         {
             if (jumpRequest)
             {
-                currentGravity = defaultGravity * jumpGravityMultiplier;
-
                 verticalVelocity = Mathf.Sqrt(jumpHeight * -2f * currentGravity);
 
                 jumpRequest = false;
@@ -184,9 +180,6 @@ public class FPSCharacterController : MonoBehaviour
 
     private void ApplyGravity()
     {
-        if (verticalVelocity < 0)
-            currentGravity = defaultGravity;
-
         if (!isGrounded)
             verticalVelocity = Mathf.Clamp(verticalVelocity + defaultGravity * Time.deltaTime, maximumFallSpeed, Mathf.Infinity);
         else if(!isJUmping)

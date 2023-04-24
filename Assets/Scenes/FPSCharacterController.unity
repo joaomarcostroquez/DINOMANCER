@@ -1838,10 +1838,11 @@ MonoBehaviour:
   walkingSpeed: 5
   runningSpeed: 10
   runToggle: 1
-  stoppedRunningThreshold: 0.01
+  stoppedRunningThreshold: 0.1
   jumpHeight: 2
   jumpRequestBuffer: 0.1
   defaultGravity: -16
+  jumpGravityMultiplier: 1
   maximumFallSpeed: -32
   groundLayers:
     serializedVersion: 2

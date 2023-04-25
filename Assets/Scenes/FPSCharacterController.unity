@@ -1874,9 +1874,10 @@ MonoBehaviour:
   walkingSpeed: 5
   runningSpeed: 10
   runToggle: 1
-  stoppedRunningThreshold: 0.7
+  stoppedRunningThreshold: 0.8
   jumpHeight: 2
   jumpRequestBuffer: 0.1
+  coyoteTime: 0.2
   defaultGravity: -32
   maximumFallSpeed: -64
   groundLayers:

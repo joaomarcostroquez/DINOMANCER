@@ -17,6 +17,7 @@ public class FPSCharacterController : MonoBehaviour
     [Header("Jump and Gravity")]
     [SerializeField] private float jumpHeight = 2f;
     [SerializeField] private float jumpRequestBuffer = 0.2f;
+    [SerializeField] private float coyoteTime = 0.1f;
     [SerializeField] private float defaultGravity = -16f;
     [SerializeField] private float maximumFallSpeed = -32f;
 
@@ -35,11 +36,13 @@ public class FPSCharacterController : MonoBehaviour
     private float movementSpeed;    
     private bool isRunning = false;
     private bool jumpRequest = false;
-    private bool isJUmping = false;
+    private bool isJumping = false;
     private float currentGravity;
     private float verticalVelocity;
     private float groundAngle;
     private bool isGrounded;
+    private bool canJump;
+    private float coyoteTimeCounter = 0f;
     private Vector3 checkSpherePosition;
 
     private void Start()
@@ -67,6 +70,7 @@ public class FPSCharacterController : MonoBehaviour
         TreatMovementInput();
         ToggleRun();
         GroundCheck();
+        CalculateCoyoteTime();
         Jump();
         ApplyGravity();
         HorizontalMovement();
@@ -131,19 +135,12 @@ public class FPSCharacterController : MonoBehaviour
 
     private void Jump()
     {
-        if (isGrounded)
+        if(jumpRequest && canJump)
         {
-            if (jumpRequest)
-            {
-                verticalVelocity = Mathf.Sqrt(jumpHeight * -2f * currentGravity);
+            verticalVelocity = Mathf.Sqrt(jumpHeight * -2f * currentGravity);
 
-                jumpRequest = false;
-                isJUmping = true;
-            }
-        }
-        else
-        {
-            isJUmping = false;
+            jumpRequest = false;
+            isJumping = true;
         }
     }
 
@@ -178,12 +175,37 @@ public class FPSCharacterController : MonoBehaviour
             }
     }
 
+    private void CalculateCoyoteTime()
+    {
+        if (isGrounded)
+        {
+            isJumping = false;
+            canJump = true;
+            coyoteTimeCounter = 0f;
+            Debug.Log("_");
+        }
+        else
+        {
+            if(!isJumping && coyoteTimeCounter < coyoteTime)
+            {
+                canJump = true;
+                coyoteTimeCounter += Time.deltaTime;
+                Debug.Log("Coyote");
+            }
+            else
+            {
+                canJump = false;
+                Debug.Log("NO");
+            }
+        }
+    }
+
     private void ApplyGravity()
     {
         if (!isGrounded)
             verticalVelocity = Mathf.Clamp(verticalVelocity + defaultGravity * Time.deltaTime, maximumFallSpeed, Mathf.Infinity);
-        else if(!isJUmping)
-            verticalVelocity = -2f;
+        else
+            verticalVelocity = Mathf.Clamp(verticalVelocity + defaultGravity * Time.deltaTime, -2f, Mathf.Infinity);
 
         _characterController.Move(Vector3.up * verticalVelocity * Time.deltaTime);
     }

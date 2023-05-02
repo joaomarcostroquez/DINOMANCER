@@ -1877,7 +1877,7 @@ MonoBehaviour:
   stoppedRunningThreshold: 0.8
   jumpHeight: 2
   jumpRequestBuffer: 0.1
-  coyoteTime: 0.2
+  coyoteTime: 0.1
   defaultGravity: -32
   maximumFallSpeed: -64
   groundLayers:

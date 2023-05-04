@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf93e6d57c9120c4fbf7508a0bcb1f0a, type: 3}
   m_Name: Shotgun
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
   gunName: 
   modelPrefab: {fileID: 0}
   spawnPoint: {x: 0, y: 0, z: 0}

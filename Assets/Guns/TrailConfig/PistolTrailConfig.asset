@@ -37,7 +37,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  duration: 1
+  duration: 0.2
   minVertexDistance: 0.1
   color:
     serializedVersion: 2
@@ -69,4 +69,4 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   missDistance: 200
-  trailSpeed: 200
+  trailSpeed: 1024

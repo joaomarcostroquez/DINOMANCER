@@ -15,5 +15,5 @@ MonoBehaviour:
   hitMask:
     serializedVersion: 2
     m_Bits: 1
-  spread: {x: 0.1, y: 0.1, z: 0.1}
+  spread: {x: 0.001, y: 0.001, z: 0.001}
   fireRate: 0.3

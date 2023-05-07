@@ -18,6 +18,7 @@ public class GunScriptableObject : ScriptableObject
     private GameObject model;
     private float lastShootTime;
     private ParticleSystem shootSystem;
+    private Camera playerCamera;
     private ObjectPool<TrailRenderer> trailPool;
 
     public void Spawn(Transform parent, MonoBehaviour activeMonoBehaviour)
@@ -31,6 +32,7 @@ public class GunScriptableObject : ScriptableObject
         model.transform.localRotation = Quaternion.Euler(spawnRotation);
 
         shootSystem = model.GetComponentInChildren<ParticleSystem>();
+        playerCamera = activeMonoBehaviour.GetComponentInChildren<Camera>();
     }
 
     public void Shoot()
@@ -39,7 +41,7 @@ public class GunScriptableObject : ScriptableObject
         {
             lastShootTime = Time.time;
             shootSystem.Play();
-            Vector3 shootDirection = shootSystem.transform.forward
+            Vector3 shootDirection = playerCamera.transform.forward
                 + new Vector3(
                     Random.Range(
                         -shootConfig.spread.x,
@@ -57,7 +59,7 @@ public class GunScriptableObject : ScriptableObject
             shootDirection.Normalize();
 
             if(Physics.Raycast(
-                    shootSystem.transform.position,
+                    playerCamera.transform.position,
                     shootDirection,
                     out RaycastHit hit,
                     float.MaxValue,

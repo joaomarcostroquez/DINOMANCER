@@ -21,7 +21,7 @@ public class GunScriptableObject : ScriptableObject
     private Camera playerCamera;
     private ObjectPool<TrailRenderer> trailPool;
 
-    public void Spawn(Transform parent, MonoBehaviour activeMonoBehaviour)
+    public void Spawn(Transform parent, MonoBehaviour activeMonoBehaviour, Camera camera)
     {
         this.activeMonoBehaviour = activeMonoBehaviour;
         lastShootTime = 0; //because scriptable objects are not reset in editor, only in build
@@ -32,7 +32,8 @@ public class GunScriptableObject : ScriptableObject
         model.transform.localRotation = Quaternion.Euler(spawnRotation);
 
         shootSystem = model.GetComponentInChildren<ParticleSystem>();
-        playerCamera = activeMonoBehaviour.GetComponentInChildren<Camera>();
+        //playerCamera = activeMonoBehaviour.GetComponentInChildren<Camera>();
+        playerCamera = camera;
     }
 
     public void Shoot()

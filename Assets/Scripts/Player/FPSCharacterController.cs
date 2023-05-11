@@ -103,7 +103,7 @@ public class FPSCharacterController : MonoBehaviour
 
                 isRunning = !isRunning;
             }
-            else if((lastStartRunningTime + dontStopAfterStartingToRunTimer) >= Time.time && treatedInput.magnitude < stoppedRunningThreshold)
+            else if((lastStartRunningTime + dontStopAfterStartingToRunTimer) <= Time.time && treatedInput.magnitude < stoppedRunningThreshold)
             {
                 movementSpeed = walkingSpeed;
 

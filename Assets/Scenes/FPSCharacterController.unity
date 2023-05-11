@@ -550,6 +550,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 582ba9ad2dca22a4e9069ef1053746f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recalculateRouteToPlayerThreshold: 1
+  approachingRange: 10
+  sightMask:
+    serializedVersion: 2
+    m_Bits: 209
 --- !u!1 &290541914
 GameObject:
   m_ObjectHideFlags: 0
@@ -2006,7 +2011,8 @@ MonoBehaviour:
   walkingSpeed: 5
   runningSpeed: 10
   runToggle: 1
-  stoppedRunningThreshold: 0.8
+  stoppedRunningThreshold: 0.7
+  dontStopAfterStartingToRunTimer: 0.5
   jumpHeight: 2
   jumpRequestBuffer: 0.1
   coyoteTime: 0.1
@@ -2014,7 +2020,7 @@ MonoBehaviour:
   maximumFallSpeed: -64
   groundLayers:
     serializedVersion: 2
-    m_Bits: 17
+    m_Bits: 145
   checkOffset: {x: 0, y: -0.64, z: 0}
   checkSphereRadius: 0.5
   normalThreshold: 20

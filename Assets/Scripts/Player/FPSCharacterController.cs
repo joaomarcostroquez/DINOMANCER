@@ -12,6 +12,9 @@ public class FPSCharacterController : MonoBehaviour
     [SerializeField] public bool runToggle = true;
     [Tooltip("If runToggle is checked, this is the threshold to automatically switch back to walking when the player stops.")]
     [SerializeField] private float stoppedRunningThreshold = 0.01f;
+    [Tooltip("This timer is to avoid switching back to walking right after starting to run.")]
+    [SerializeField] private float dontStopAfterStartingToRunTimer = 0.5f;
+    private float lastStartRunningTime = 0f;
 
     [Header("Jump and Gravity")]
     [SerializeField] private float jumpHeight = 2f;
@@ -92,11 +95,15 @@ public class FPSCharacterController : MonoBehaviour
                 if (isRunning)
                     movementSpeed = walkingSpeed;
                 else
+                {
                     movementSpeed = runningSpeed;
+
+                    lastStartRunningTime = Time.time;
+                }     
 
                 isRunning = !isRunning;
             }
-            else if(treatedInput.magnitude < stoppedRunningThreshold)
+            else if((lastStartRunningTime + dontStopAfterStartingToRunTimer) >= Time.time && treatedInput.magnitude < stoppedRunningThreshold)
             {
                 movementSpeed = walkingSpeed;
 
@@ -181,7 +188,7 @@ public class FPSCharacterController : MonoBehaviour
             isJumping = false;
             canJump = true;
             coyoteTimeCounter = 0f;
-            Debug.Log("_");
+            //Debug.Log("_");
         }
         else
         {
@@ -189,12 +196,12 @@ public class FPSCharacterController : MonoBehaviour
             {
                 canJump = true;
                 coyoteTimeCounter += Time.deltaTime;
-                Debug.Log("Coyote");
+                //Debug.Log("Coyote");
             }
             else
             {
                 canJump = false;
-                Debug.Log("NO");
+                //Debug.Log("NO");
             }
         }
     }

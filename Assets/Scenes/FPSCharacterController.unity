@@ -550,7 +550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 582ba9ad2dca22a4e9069ef1053746f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recalculateRouteToPlayerThreshold: 1
+  recalculateRouteToPlayerThreshold: 2
   approachingRange: 10
   sightMask:
     serializedVersion: 2

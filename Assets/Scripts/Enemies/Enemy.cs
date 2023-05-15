@@ -28,11 +28,16 @@ public class Enemy : MonoBehaviour
             return true;
         }*/
 
-        if(Vector3.Distance(player.transform.position, navMeshAgent.destination) > recalculateRouteToPlayerThreshold)
+        if(HorizontalDistance(player.transform.position, navMeshAgent.destination) > recalculateRouteToPlayerThreshold)
         {
             navMeshAgent.SetDestination(player.transform.position);
         }
 
         return false;
+    }
+
+    private float HorizontalDistance(Vector3 a, Vector3 b)
+    {
+        return Vector2.Distance(new Vector2(a.x, a.z), new Vector2(b.x, b.z));
     }
 }

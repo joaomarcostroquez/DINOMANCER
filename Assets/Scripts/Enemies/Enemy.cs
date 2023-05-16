@@ -22,11 +22,12 @@ public class Enemy : MonoBehaviour
     //Moves in the direction of player until it is in range and on sight
     protected bool MoveUntilPlayerInRangeAndOnSight()
     {
-        /*if(Vector3.Distance(transform.position, player.transform.position) <= approachingRange)
+        if(HorizontalDistance(transform.position, player.transform.position) <= approachingRange)
         {
-            navMeshAgent.SetPath(null);
+            navMeshAgent.ResetPath();
+
             return true;
-        }*/
+        }
 
         if(HorizontalDistance(player.transform.position, navMeshAgent.destination) > recalculateRouteToPlayerThreshold)
         {

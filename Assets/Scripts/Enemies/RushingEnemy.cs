@@ -6,6 +6,6 @@ public class RushingEnemy : Enemy
 {
     private void Update()
     {
-        MoveUntilPlayerInRangeAndOnSight();
+        if(MoveUntilPlayerInRangeAndOnSight());
     }
 }

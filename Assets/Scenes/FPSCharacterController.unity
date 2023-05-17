@@ -511,7 +511,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -556,7 +556,12 @@ MonoBehaviour:
   sightMask:
     serializedVersion: 2
     m_Bits: 209
-  rushAcceleration: 15
+  rushAnticipationDuration: 3
+  rushAimRotationMultiplier: 0.5
+  rushRunDuration: 2
+  rushAcceleration: 20
+  rushBrakingAcceleration: 2
+  rushCanStopTimer: 0.1
 --- !u!54 &274676476
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -570,7 +575,7 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1 &290541914
@@ -2216,7 +2221,7 @@ Transform:
   m_GameObject: {fileID: 884143087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -2246,7 +2251,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1020954853}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -7.7, y: 0, z: -9.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

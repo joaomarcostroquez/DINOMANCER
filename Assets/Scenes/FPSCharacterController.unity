@@ -511,10 +511,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 5
+  m_Speed: 6
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 360
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -531,7 +531,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 274676472}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -6.52, y: 0, z: 20.97}
+  m_LocalPosition: {x: -6.83, y: 0, z: 3.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -561,7 +561,10 @@ MonoBehaviour:
   rushRunDuration: 2
   rushAcceleration: 20
   rushBrakingAcceleration: 2
-  rushCanStopTimer: 0.1
+  rushStopSpeed: 0.1
+  rushBackstep: 16
+  rushCanStopTimer: 0.5
+  rushCooldownTimer: 1
 --- !u!54 &274676476
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2373,7 +2376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1092048300
 Transform:
   m_ObjectHideFlags: 0

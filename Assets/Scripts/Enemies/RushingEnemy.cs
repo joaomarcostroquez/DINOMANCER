@@ -10,9 +10,13 @@ public class RushingEnemy : Enemy
     [SerializeField] private float rushRunDuration = 5f;
     [SerializeField] private float rushAcceleration = 50f;
     [SerializeField] private float rushBrakingAcceleration = 2f;
+    [SerializeField] private float rushStopSpeed = 0.1f;
+    [SerializeField] private float rushBackstep = 2f;
     [SerializeField] private float rushCanStopTimer = 0.2f;
+    [SerializeField] private float rushCooldownTimer = 1f;
 
     private Rigidbody _rigidbody;
+    private bool available = true;
     private bool isRushing = false;
     private bool isRunning = false;
     private bool isBraking = false;
@@ -26,7 +30,7 @@ public class RushingEnemy : Enemy
 
     private void Update()
     {
-        if (!isRushing)
+        if (available)
         {
             if (MoveUntilPlayerInRangeAndOnSight())
                 StartCoroutine(Rush());
@@ -72,6 +76,9 @@ public class RushingEnemy : Enemy
         _rigidbody.isKinematic = false;
         _rigidbody.velocity = previousVelocity;
 
+        _rigidbody.AddForce(Vector3.Normalize(player.transform.position - transform.position) * -rushBackstep, ForceMode.VelocityChange);
+
+        available = false;
         isRushing = true;
         isRunning = false;
         isBraking = false;
@@ -82,28 +89,36 @@ public class RushingEnemy : Enemy
 
     private void UpdateRush()
     {
-        if (canStop && _rigidbody.velocity.magnitude <= 0.01f)
-            StopRush();
+        if (canStop && _rigidbody.velocity.magnitude <= rushStopSpeed)
+            StartCoroutine(StopRush());
 
 
         if (isRunning)
             _rigidbody.AddForce(transform.forward * rushAcceleration, ForceMode.Acceleration);
         else if (isBraking)
-            _rigidbody.AddForce(_rigidbody.velocity.normalized * -rushBrakingAcceleration, ForceMode.Acceleration);
+            _rigidbody.AddForce(transform.forward * -rushBrakingAcceleration, ForceMode.Acceleration);
         else
             LookAtTarget(_rigidbody, new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z), rushAimRotationMultiplier);
     }
 
-    private void StopRush()
+    private IEnumerator StopRush()
     {
         StopCoroutine(Rush());
+        isRushing = false;
+
+        //_rigidbody.AddForce(transform.forward * -rushBackstep, ForceMode.VelocityChange);
+
+        yield return new WaitForSeconds(rushCooldownTimer);
 
         _rigidbody.velocity = Vector3.zero;
         _rigidbody.isKinematic = true;
-        isRushing = false;
 
+        navMeshAgent.enabled = true;
         navMeshAgent.isStopped = false;
-        navMeshAgent.enabled = true;      
+
+        available = true;
+
+        yield return null;
     }
 
     private void LookAtTarget(Rigidbody rb, Vector3 targetPosition, float multiplier = 1)

@@ -22,7 +22,13 @@ public class Enemy : MonoBehaviour
     //Moves in the direction of player until it is in range and on sight
     protected bool MoveUntilPlayerInRangeAndOnSight()
     {
-        if(HorizontalDistance(transform.position, player.transform.position) <= approachingRange)
+        for(int i = 0; i < 3; i++)
+        {
+            //player.transform.position[i]
+            //navmesh agent raycast to player, if theres an obstacle raycast around player using error variable to permit rushing to player even when he is near to a wall
+        }
+
+        if(HorizontalDistance(transform.position, player.transform.position) <= approachingRange && !navMeshAgent.Raycast(player.transform.position, out NavMeshHit hit))
         {
             navMeshAgent.ResetPath();
 

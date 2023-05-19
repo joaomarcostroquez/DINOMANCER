@@ -5,13 +5,14 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    //Common functionalities for all enemies
+    [SerializeField] private float recalculateRouteToPlayerThreshold = 1f;
+    [SerializeField] protected float approachingRange = 10f;
+    [SerializeField] private float navRaycastAroundPlayerDistance = 1f;
+
     protected NavMeshAgent navMeshAgent;
     protected GameObject player;
 
-    [SerializeField] private float recalculateRouteToPlayerThreshold = 1f;
-    [SerializeField] protected float approachingRange = 10f;
-    [SerializeField] private LayerMask sightMask;
+    private Vector3[] navRaycastsAroundPlayerDirections = { new Vector3(0, 0, 0), new Vector3(1, 0, 0), new Vector3(-1, 0, 0), new Vector3(0, 0, 1), new Vector3(0, 0, -1) };
 
     private void Awake()
     {
@@ -22,13 +23,19 @@ public class Enemy : MonoBehaviour
     //Moves in the direction of player until it is in range and on sight
     protected bool MoveUntilPlayerInRangeAndOnSight()
     {
-        for(int i = 0; i < 3; i++)
+        NavMeshHit hit;
+        bool playerOnSight = false;
+
+        foreach(Vector3 checkPosition in navRaycastsAroundPlayerDirections)
         {
-            //player.transform.position[i]
-            //navmesh agent raycast to player, if theres an obstacle raycast around player using error variable to permit rushing to player even when he is near to a wall
+            if(!navMeshAgent.Raycast(player.transform.position + checkPosition * navRaycastAroundPlayerDistance, out hit))
+            {
+                playerOnSight = true;
+                break;
+            }
         }
 
-        if(HorizontalDistance(transform.position, player.transform.position) <= approachingRange && !navMeshAgent.Raycast(player.transform.position, out NavMeshHit hit))
+        if(HorizontalDistance(transform.position, player.transform.position) <= approachingRange && playerOnSight)
         {
             navMeshAgent.ResetPath();
 

@@ -74,7 +74,8 @@ public class RushingEnemy : Enemy
 
         //transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
         _rigidbody.isKinematic = false;
-        _rigidbody.velocity = previousVelocity;
+        //_rigidbody.velocity = previousVelocity;
+        _rigidbody.velocity = Vector3.zero;
 
         _rigidbody.AddForce(Vector3.Normalize(player.transform.position - transform.position) * -rushBackstep, ForceMode.VelocityChange);
 

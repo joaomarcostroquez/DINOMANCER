@@ -5,12 +5,14 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float recalculateRouteToPlayerThreshold = 1f;
+    [SerializeField] protected float activationRange = 20f;
     [SerializeField] protected float approachingRange = 10f;
+    [SerializeField] private float recalculateRouteToPlayerThreshold = 1f;
     [SerializeField] private float navRaycastAroundPlayerDistance = 1f;
 
     protected NavMeshAgent navMeshAgent;
     protected GameObject player;
+    protected bool isActive = false;
 
     private Vector3[] navRaycastsAroundPlayerDirections = { new Vector3(0, 0, 0), new Vector3(1, 0, 0), new Vector3(-1, 0, 0), new Vector3(0, 0, 1), new Vector3(0, 0, -1) };
 
@@ -18,6 +20,14 @@ public class Enemy : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player");
+    }
+
+    protected virtual void Update()
+    {
+        if(!isActive && Vector3.Distance(transform.position, player.transform.position) <= activationRange)
+        {
+            isActive = true;
+        }
     }
 
     //Moves in the direction of player until it is in range and on sight

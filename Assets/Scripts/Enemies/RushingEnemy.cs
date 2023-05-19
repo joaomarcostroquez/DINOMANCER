@@ -28,11 +28,13 @@ public class RushingEnemy : Enemy
         _rigidbody.isKinematic = true;
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
+
         if (available)
         {
-            if (MoveUntilPlayerInRangeAndOnSight())
+            if (isActive && MoveUntilPlayerInRangeAndOnSight())
                 StartCoroutine(Rush());
         }
     }

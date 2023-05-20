@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 100;
+    [SerializeField] protected float maxHealth = 100;
 
-    private float health;
+    protected float health;
 
-    void Start()
+    protected virtual void Start()
     {
         health = maxHealth;
     }

@@ -10,9 +10,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float recalculateRouteToPlayerThreshold = 1f;
     [SerializeField] private float navRaycastAroundPlayerDistance = 1f;
 
+    [SerializeField] protected float contactDamage = 0f;
+    [SerializeField] protected float contactDamageKnockback = 0f;
+    [SerializeField] protected float contactDamageCoolDown = 1f;
+
     protected NavMeshAgent navMeshAgent;
     protected GameObject player;
     protected bool isActive = false;
+    protected bool canDoContactDamage = true;
 
     private Vector3[] navRaycastsAroundPlayerDirections = { new Vector3(0, 0, 0), new Vector3(1, 0, 0), new Vector3(-1, 0, 0), new Vector3(0, 0, 1), new Vector3(0, 0, -1) };
 
@@ -63,5 +68,10 @@ public class Enemy : MonoBehaviour
     private float HorizontalDistance(Vector3 a, Vector3 b)
     {
         return Vector2.Distance(new Vector2(a.x, a.z), new Vector2(b.x, b.z));
+    }
+
+    public virtual void ContactDamage(Health healthScript)
+    {
+        healthScript.ChangeHealth(-contactDamage);
     }
 }

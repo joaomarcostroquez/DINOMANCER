@@ -494,6 +494,7 @@ GameObject:
   - component: {fileID: 274676473}
   - component: {fileID: 274676475}
   - component: {fileID: 274676476}
+  - component: {fileID: 274676477}
   m_Layer: 0
   m_Name: RushingEnemy
   m_TagString: Untagged
@@ -555,6 +556,9 @@ MonoBehaviour:
   approachingRange: 10
   recalculateRouteToPlayerThreshold: 2
   navRaycastAroundPlayerDistance: 1
+  contactDamage: 0
+  contactDamageKnockback: 0
+  contactDamageCoolDown: 1
   rushAnticipationDuration: 1
   rushAimRotationMultiplier: 0.5
   rushRunDuration: 2
@@ -580,6 +584,19 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!65 &274676477
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274676472}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3, z: 2}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1 &290541914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1521,7 +1538,7 @@ BoxCollider:
   m_GameObject: {fileID: 594961942}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1975,13 +1992,12 @@ GameObject:
   m_Component:
   - component: {fileID: 867710349}
   - component: {fileID: 867710350}
-  - component: {fileID: 867710357}
+  - component: {fileID: 867710356}
   - component: {fileID: 867710351}
   - component: {fileID: 867710355}
   - component: {fileID: 867710354}
   - component: {fileID: 867710353}
   - component: {fileID: 867710352}
-  - component: {fileID: 867710356}
   m_Layer: 6
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -2053,6 +2069,7 @@ MonoBehaviour:
   checkSphereRadius: 0.5
   normalThreshold: 20
   _camera: {fileID: 1671064541}
+  healthScript: {fileID: 867710356}
 --- !u!23 &867710352
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2146,20 +2163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c40f5785f7d5984fadaec9160e89f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
---- !u!114 &867710357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867710348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7923ff301f0dc04f8059f145baa3d68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 150
+  txHealth: {fileID: 1247531328}
+  txMaxHealth: {fileID: 1307517514}
 --- !u!1 &884143087
 GameObject:
   m_ObjectHideFlags: 0

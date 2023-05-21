@@ -32,6 +32,7 @@ public class FPSCharacterController : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] private Camera _camera;
+    [SerializeField] private Health healthScript;
 
     private CharacterController _characterController;
     private Vector3 movementInput, treatedInput;
@@ -53,6 +54,12 @@ public class FPSCharacterController : MonoBehaviour
         {
             Debug.Log("Player camera has not been assigned in Inspector. Do it or performance may be hindered.");
             _camera = Camera.main;
+        }
+
+        if (healthScript == null)
+        {
+            Debug.Log("PlayerHealth Script has not been assigned in Inspector. Do it or performance may be hindered.");
+            healthScript = GetComponent<PlayerHealth>();
         }
 
         _characterController = GetComponent<CharacterController>();
@@ -227,5 +234,16 @@ public class FPSCharacterController : MonoBehaviour
         jumpRequest = false;
 
         yield return null;
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        Enemy enemyScript = hit.gameObject.GetComponent<Enemy>();
+
+        if(enemyScript != null)
+        {
+            Debug.Log("hit");
+            enemyScript.ContactDamage(healthScript);
+        }
     }
 }

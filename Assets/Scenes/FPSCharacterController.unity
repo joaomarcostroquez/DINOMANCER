@@ -556,7 +556,7 @@ MonoBehaviour:
   approachingRange: 10
   recalculateRouteToPlayerThreshold: 2
   navRaycastAroundPlayerDistance: 1
-  contactDamage: 0
+  contactDamage: 1
   contactDamageKnockback: 0
   contactDamageCoolDown: 1
   rushAnticipationDuration: 1
@@ -2069,7 +2069,7 @@ MonoBehaviour:
   checkSphereRadius: 0.5
   normalThreshold: 20
   contactDamageEnemyCollisionStartCheckingDistance: 3
-  contactDamageEnemyCollisionCheckMoveDistance: 0.1
+  contactDamageEnemyCollisionCheckMoveDistance: 0.2
   _camera: {fileID: 1671064541}
   healthScript: {fileID: 867710356}
   contactDamageEnemies: []

@@ -263,7 +263,7 @@ public class FPSCharacterController : MonoBehaviour
                 contactDamageEnemies.RemoveAt(i);
                 return;
             }
-
+            
             Enemy enemy = contactDamageEnemies[i];
 
             if (Vector3.Distance(transform.position, enemy.transform.position) < Vector3.Distance(transform.position, nearestContactDamageEnemy.transform.position))

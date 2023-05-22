@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player");
 
-        if(contactDamage == 0 && contactDamageKnockback == 0)
+        if(contactDamage != 0 || contactDamageKnockback != 0)
         {
             player.GetComponent<FPSCharacterController>().contactDamageEnemies.Add(this);
         }

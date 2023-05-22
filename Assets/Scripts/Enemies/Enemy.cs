@@ -17,14 +17,24 @@ public class Enemy : MonoBehaviour
     protected NavMeshAgent navMeshAgent;
     protected GameObject player;
     protected bool isActive = false;
-    protected bool canDoContactDamage = true;
+    protected bool readyToDoContactDamage = true;
 
     private Vector3[] navRaycastsAroundPlayerDirections = { new Vector3(0, 0, 0), new Vector3(1, 0, 0), new Vector3(-1, 0, 0), new Vector3(0, 0, 1), new Vector3(0, 0, -1) };
+
+    private CharacterController playerCharacterController;
+    [SerializeField] private float playerCollisionCheckMoveDistance = 0.1f;
 
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player");
+
+        playerCharacterController = player.GetComponent<CharacterController>();
+
+        if(contactDamage == 0 && contactDamageKnockback == 0)
+        {
+            
+        }
     }
 
     protected virtual void Update()
@@ -33,6 +43,10 @@ public class Enemy : MonoBehaviour
         {
             isActive = true;
         }
+
+        Vector3 playerToEnemyDirection = Vector3.Normalize(transform.position - player.transform.position);
+        playerCharacterController.Move(playerToEnemyDirection * playerCollisionCheckMoveDistance * Time.deltaTime);
+        playerCharacterController.Move(playerToEnemyDirection * playerCollisionCheckMoveDistance * Time.deltaTime * -1);
     }
 
     //Moves in the direction of player until it is in range and on sight

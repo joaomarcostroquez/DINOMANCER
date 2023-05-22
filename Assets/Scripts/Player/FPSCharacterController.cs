@@ -47,6 +47,7 @@ public class FPSCharacterController : MonoBehaviour
     private bool canJump;
     private float coyoteTimeCounter = 0f;
     private Vector3 checkSpherePosition;
+    public Enemy[] contactDamageEnemies;
 
     private void Start()
     {
@@ -74,6 +75,7 @@ public class FPSCharacterController : MonoBehaviour
 
     private void Update()
     {
+        //DetectCollisions();
         RotateWithCamera();
         GetInput();
         TreatMovementInput();
@@ -83,6 +85,11 @@ public class FPSCharacterController : MonoBehaviour
         Jump();
         ApplyGravity();
         HorizontalMovement();
+    }
+
+    private void FixedUpdate()
+    {
+        DetectCollisions();
     }
 
     private void GetInput()
@@ -234,6 +241,11 @@ public class FPSCharacterController : MonoBehaviour
         jumpRequest = false;
 
         yield return null;
+    }
+
+    private void DetectCollisions()
+    {
+        _characterController.Move(Vector3.zero);
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)

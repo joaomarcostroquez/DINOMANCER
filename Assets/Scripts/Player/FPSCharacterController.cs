@@ -31,10 +31,13 @@ public class FPSCharacterController : MonoBehaviour
     [Tooltip("Value used to detect if collided with ground or walls.")]
     [SerializeField] private float normalThreshold;
 
+    [Header("Contact damage enemy collision check")]
+    [SerializeField] private float contactDamageEnemyCollisionStartCheckingDistance = 3f;
+    [SerializeField] private float contactDamageEnemyCollisionCheckMoveDistance = 0.2f;
+
     [Header("Other")]
     [SerializeField] private Camera _camera;
-    [SerializeField] private Health healthScript;
-    [SerializeField] private float contactDamageEnemyCollisionCheckMoveDistance = 0.2f;
+    [SerializeField] private Health healthScript;   
 
     private CharacterController _characterController;
     private Vector3 movementInput, treatedInput;
@@ -253,20 +256,30 @@ public class FPSCharacterController : MonoBehaviour
         
         Enemy nearestContactDamageEnemy = contactDamageEnemies[0];
 
-        if(contactDamageEnemies.Count > 1)
+        for (int i = 0; i < contactDamageEnemies.Count; i++)
         {
-            foreach(Enemy enemy in contactDamageEnemies)
+            if (contactDamageEnemies[i] == null)
             {
-                if(Vector3.Distance(transform.position, enemy.transform.position) < Vector3.Distance(transform.position, nearestContactDamageEnemy.transform.position))
-                {
-                    nearestContactDamageEnemy = enemy;
-                }
+                contactDamageEnemies.RemoveAt(i);
+                return;
+            }
+
+            Enemy enemy = contactDamageEnemies[i];
+
+            if (Vector3.Distance(transform.position, enemy.transform.position) < Vector3.Distance(transform.position, nearestContactDamageEnemy.transform.position))
+            {
+                nearestContactDamageEnemy = enemy;
             }
         }
         
+        if (Vector3.Distance(transform.position, nearestContactDamageEnemy.transform.position) > contactDamageEnemyCollisionStartCheckingDistance)
+            return;
+        
         Vector3 playerToEnemyDirection = Vector3.Normalize(nearestContactDamageEnemy.transform.position - transform.position);
+        playerToEnemyDirection = new Vector3(playerToEnemyDirection.x, 0, playerToEnemyDirection.z);
+
         _characterController.Move(playerToEnemyDirection * contactDamageEnemyCollisionCheckMoveDistance * Time.fixedDeltaTime);
-        //_characterController.Move(playerToEnemyDirection * contactDamageEnemyCollisionCheckMoveDistance * -Time.fixedDeltaTime);
+        _characterController.Move(playerToEnemyDirection * contactDamageEnemyCollisionCheckMoveDistance * -Time.fixedDeltaTime);
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)

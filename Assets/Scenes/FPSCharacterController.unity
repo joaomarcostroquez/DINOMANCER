@@ -559,7 +559,6 @@ MonoBehaviour:
   contactDamage: 0
   contactDamageKnockback: 0
   contactDamageCoolDown: 1
-  playerCollisionCheckMoveDistance: 0.2
   rushAnticipationDuration: 1
   rushAimRotationMultiplier: 0.5
   rushRunDuration: 2
@@ -2069,8 +2068,11 @@ MonoBehaviour:
   checkOffset: {x: 0, y: -0.64, z: 0}
   checkSphereRadius: 0.5
   normalThreshold: 20
+  contactDamageEnemyCollisionStartCheckingDistance: 3
+  contactDamageEnemyCollisionCheckMoveDistance: 0.1
   _camera: {fileID: 1671064541}
   healthScript: {fileID: 867710356}
+  contactDamageEnemies: []
 --- !u!23 &867710352
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ public class RushingEnemy : Enemy
     [SerializeField] private float rushCooldownTimer = 1f;
 
     private Rigidbody _rigidbody;
+    private RigidbodyConstraints startingRigidbodyConstraints;
     private bool available = true;
     private bool isRushing = false;
     private bool isRunning = false;
@@ -26,6 +27,7 @@ public class RushingEnemy : Enemy
     {
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.isKinematic = true;
+        startingRigidbodyConstraints = _rigidbody.constraints;
     }
 
     protected override void Update()
@@ -81,6 +83,8 @@ public class RushingEnemy : Enemy
 
         _rigidbody.AddForce(Vector3.Normalize(player.transform.position - transform.position) * -rushBackstep, ForceMode.VelocityChange);
 
+        _rigidbody.constraints = startingRigidbodyConstraints;
+
         available = false;
         isRushing = true;
         isRunning = false;
@@ -109,6 +113,8 @@ public class RushingEnemy : Enemy
         StopCoroutine(Rush());
         isRushing = false;
 
+        _rigidbody.constraints = startingRigidbodyConstraints;
+
         //_rigidbody.AddForce(transform.forward * -rushBackstep, ForceMode.VelocityChange);
 
         yield return new WaitForSeconds(rushCooldownTimer);
@@ -128,6 +134,8 @@ public class RushingEnemy : Enemy
     {
         if (!readyToDoContactDamage)
             return;
+
+        _rigidbody.constraints = startingRigidbodyConstraints | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationY;
 
         healthScript.ChangeHealth(-contactDamage);
 

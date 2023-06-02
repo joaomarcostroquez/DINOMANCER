@@ -91,14 +91,9 @@ public class Enemy : MonoBehaviour
     {
         readyToDoContactDamage = false;
 
-        LayerMask _initialLayer = gameObject.layer;
-        gameObject.layer = 8;
-
         yield return new WaitForSeconds(contactDamageCoolDown);
 
         readyToDoContactDamage = true;
-
-        gameObject.layer = _initialLayer;
 
         yield return null;
     }

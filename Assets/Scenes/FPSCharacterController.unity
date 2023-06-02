@@ -495,7 +495,7 @@ GameObject:
   - component: {fileID: 274676475}
   - component: {fileID: 274676476}
   - component: {fileID: 274676477}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RushingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -556,9 +556,9 @@ MonoBehaviour:
   approachingRange: 10
   recalculateRouteToPlayerThreshold: 2
   navRaycastAroundPlayerDistance: 1
-  contactDamage: 1
-  contactDamageKnockback: 0
-  contactDamageCoolDown: 1
+  contactDamage: 20
+  contactDamageKnockback: {x: 0, y: 2}
+  contactDamageCoolDown: 2
   rushAnticipationDuration: 1
   rushAimRotationMultiplier: 0.5
   rushRunDuration: 2

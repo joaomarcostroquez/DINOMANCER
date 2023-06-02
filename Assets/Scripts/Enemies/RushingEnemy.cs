@@ -124,6 +124,18 @@ public class RushingEnemy : Enemy
         yield return null;
     }
 
+    public override void ContactDamage(FPSCharacterController playerControllerScript, Health healthScript)
+    {
+        if (!readyToDoContactDamage)
+            return;
+
+        healthScript.ChangeHealth(-contactDamage);
+
+        playerControllerScript.StartKnockBack(transform.position, _rigidbody.velocity, contactDamageKnockback);
+
+        StartCoroutine(ContactDamageCooldown());
+    }
+
     private void LookAtTarget(Rigidbody rb, Vector3 targetPosition, float multiplier = 1)
     {
         // Calculate the desired target orientation Quaternion

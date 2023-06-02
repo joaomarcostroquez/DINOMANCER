@@ -248,6 +248,21 @@ public class FPSCharacterController : MonoBehaviour
         yield return null;
     }
 
+    public void StartKnockBack(Vector3 enemyPosition, Vector3 enemyDirection, Vector2 knockback)
+    {
+        StartCoroutine(KnockBack(enemyPosition, enemyDirection, knockback));
+    }
+
+    private IEnumerator KnockBack(Vector3 enemyPosition, Vector3 enemyDirection, Vector2 knockback)
+    {
+        verticalVelocity = Mathf.Sqrt(knockback.y * -2f * currentGravity);
+
+        jumpRequest = false;
+        isJumping = true;
+
+        yield return null;
+    }
+
     //moves player back and forth in the nearest enemy's direction to force OnControllerColliderHit to detect the collision
     private void DetectContactDamageCollisions()
     {
@@ -289,7 +304,7 @@ public class FPSCharacterController : MonoBehaviour
         if(enemyScript != null)
         {
             Debug.Log("hit");
-            enemyScript.ContactDamage(healthScript);
+            enemyScript.ContactDamage(this, healthScript);
         }
     }
 }

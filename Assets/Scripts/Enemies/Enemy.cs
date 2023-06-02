@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float navRaycastAroundPlayerDistance = 1f;
 
     [SerializeField] protected float contactDamage = 0f;
-    [SerializeField] protected float contactDamageKnockback = 0f;
+    [SerializeField] protected Vector2 contactDamageKnockback = Vector2.zero;
     [SerializeField] protected float contactDamageCoolDown = 1f;
 
     protected NavMeshAgent navMeshAgent;
@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player");
 
-        if(contactDamage != 0 || contactDamageKnockback != 0)
+        if(contactDamage != 0 || contactDamageKnockback.x != 0 || contactDamageKnockback.y != 0)
         {
             player.GetComponent<FPSCharacterController>().contactDamageEnemies.Add(this);
         }
@@ -75,8 +75,31 @@ public class Enemy : MonoBehaviour
         return Vector2.Distance(new Vector2(a.x, a.z), new Vector2(b.x, b.z));
     }
 
-    public virtual void ContactDamage(Health healthScript)
+    public virtual void ContactDamage(FPSCharacterController playerControllerScript, Health healthScript)
     {
+        if (!readyToDoContactDamage)
+            return;
+
         healthScript.ChangeHealth(-contactDamage);
+
+        playerControllerScript.StartKnockBack(transform.position, navMeshAgent.velocity, contactDamageKnockback);
+
+        StartCoroutine(ContactDamageCooldown());
+    }
+
+    protected IEnumerator ContactDamageCooldown()
+    {
+        readyToDoContactDamage = false;
+
+        LayerMask _initialLayer = gameObject.layer;
+        gameObject.layer = 8;
+
+        yield return new WaitForSeconds(contactDamageCoolDown);
+
+        readyToDoContactDamage = true;
+
+        gameObject.layer = _initialLayer;
+
+        yield return null;
     }
 }

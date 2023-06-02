@@ -23,6 +23,7 @@ public class FPSCharacterController : MonoBehaviour
     [SerializeField] private float coyoteTime = 0.1f;
     [SerializeField] private float defaultGravity = -16f;
     [SerializeField] private float maximumFallSpeed = -32f;
+    [SerializeField] private float knockbackBreakForce = 8f;
 
     [Header("Ground check")]
     [SerializeField] private LayerMask groundLayers;
@@ -52,6 +53,9 @@ public class FPSCharacterController : MonoBehaviour
     private bool canJump;
     private float coyoteTimeCounter = 0f;
     private Vector3 checkSpherePosition;
+    private bool isBeingKonckedBack = false;
+    private Vector3 horizontalKnockbackDirection;
+    private float horizontalKnockbackForce;
     public List<Enemy> contactDamageEnemies = new List<Enemy>();
 
     private void Start()
@@ -80,7 +84,7 @@ public class FPSCharacterController : MonoBehaviour
 
     private void Update()
     {
-        //DetectCollisions();
+        DetectContactDamageCollisions();
         RotateWithCamera();
         GetInput();
         TreatMovementInput();
@@ -155,6 +159,18 @@ public class FPSCharacterController : MonoBehaviour
 
     private void HorizontalMovement()
     {
+        if (isBeingKonckedBack)
+        {
+            if(horizontalKnockbackForce <= 0.1f)
+            {
+                isBeingKonckedBack = false;
+            }
+
+            _characterController.Move(horizontalKnockbackDirection * horizontalKnockbackForce * Time.deltaTime);
+
+            horizontalKnockbackForce -= knockbackBreakForce * Time.deltaTime;
+        }
+
         _characterController.Move(treatedInput * movementSpeed * Time.deltaTime);
     }
 
@@ -256,6 +272,14 @@ public class FPSCharacterController : MonoBehaviour
     private IEnumerator KnockBack(Vector3 enemyPosition, Vector3 enemyDirection, Vector2 knockback)
     {
         verticalVelocity = Mathf.Sqrt(knockback.y * -2f * currentGravity);
+
+        horizontalKnockbackDirection = transform.position - enemyPosition;
+        horizontalKnockbackDirection = new Vector3(horizontalKnockbackDirection.x, 0, horizontalKnockbackDirection.z);
+        horizontalKnockbackDirection.Normalize();
+
+        horizontalKnockbackForce = knockback.x;
+
+        isBeingKonckedBack = true;
 
         jumpRequest = false;
         isJumping = true;

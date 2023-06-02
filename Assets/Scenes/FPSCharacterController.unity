@@ -557,7 +557,7 @@ MonoBehaviour:
   recalculateRouteToPlayerThreshold: 2
   navRaycastAroundPlayerDistance: 1
   contactDamage: 20
-  contactDamageKnockback: {x: 0, y: 2}
+  contactDamageKnockback: {x: 16, y: 4}
   contactDamageCoolDown: 2
   rushAnticipationDuration: 1
   rushAimRotationMultiplier: 0.5
@@ -2062,6 +2062,7 @@ MonoBehaviour:
   coyoteTime: 0.1
   defaultGravity: -32
   maximumFallSpeed: -64
+  knockbackBreakForce: 8
   groundLayers:
     serializedVersion: 2
     m_Bits: 145

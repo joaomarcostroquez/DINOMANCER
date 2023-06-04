@@ -5,7 +5,6 @@ using UnityEngine.Pool;
 [CreateAssetMenu(fileName = "Gun", menuName = "Guns/Gun", order = 0)]
 public class GunScriptableObject : ScriptableObject
 {
-    public ImpactType impactType;
     public GunType type;
     public string gunName;
     public GameObject modelPrefab;
@@ -116,18 +115,12 @@ public class GunScriptableObject : ScriptableObject
 
         /* code using the impact system tutorial: https://www.youtube.com/watch?v=kT2ZxjMuT_4
          * can be removed and use another sollution
-         * if decided to use it, return to follow the tutorial in https://youtu.be/E-vIMamyORg?t=695    */
+         * if decided to use it, return to follow the tutorial in https://youtu.be/E-vIMamyORg?t=695
         
         if(hit.collider != null)
         {
-            SurfaceManager.Instance.HandleImpact(
-                    hit.transform.gameObject,
-                    endPoint,
-                    hit.normal,
-                    impactType,
-                    0
-                );
-        }
+            SurfaceManager.Instance.HandleImpact();
+        }*/
 
         yield return new WaitForSeconds(trailConfig.duration);
         yield return null;

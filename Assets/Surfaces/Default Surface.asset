@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ea8f16c91e5ba645a3bf4e73316b186, type: 3}
   m_Name: Default Surface
   m_EditorClassIdentifier: 
-  ImpactTypeEffects: []
+  ImpactTypeEffects:
+  - ImpactType: {fileID: 11400000, guid: 6736b3274afbcdf4f8f61f92a3c406de, type: 2}
+    SurfaceEffect: {fileID: 11400000, guid: 6638c55bb197780469f63a6c727ca4f7, type: 2}

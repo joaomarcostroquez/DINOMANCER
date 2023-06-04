@@ -23,8 +23,10 @@ public class RushingEnemy : Enemy
     private bool isBraking = false;
     private bool canStop = false;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.isKinematic = true;
         startingRigidbodyConstraints = _rigidbody.constraints;

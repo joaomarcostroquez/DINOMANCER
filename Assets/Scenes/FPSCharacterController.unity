@@ -493,6 +493,8 @@ GameObject:
   - component: {fileID: 274676474}
   - component: {fileID: 274676473}
   - component: {fileID: 274676475}
+  - component: {fileID: 274676478}
+  - component: {fileID: 274676479}
   - component: {fileID: 274676476}
   - component: {fileID: 274676477}
   m_Layer: 7
@@ -552,6 +554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 582ba9ad2dca22a4e9069ef1053746f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 274676478}
   activationRange: 20
   approachingRange: 10
   recalculateRouteToPlayerThreshold: 2
@@ -597,6 +600,34 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 3, z: 2}
   m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!114 &274676478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274676472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23fad6f2ff6763444871afd62c1a9247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _health: 0
+--- !u!114 &274676479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274676472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d51c377ee702f2343ac12556f3c380fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathSystem: {fileID: 198856239026640498, guid: 9bba9cf244c53c5439505dfc96fdd11c,
+    type: 3}
 --- !u!1 &290541914
 GameObject:
   m_ObjectHideFlags: 0

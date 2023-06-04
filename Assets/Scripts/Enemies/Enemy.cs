@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+    public EnemyHealth health;
+
     [SerializeField] protected float activationRange = 20f;
     [SerializeField] protected float approachingRange = 10f;
     [SerializeField] private float recalculateRouteToPlayerThreshold = 1f;
@@ -32,12 +34,22 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    protected virtual void Start()
+    {
+        health.OnDeath += Die;
+    }
+
     protected virtual void Update()
     {
         if(!isActive && Vector3.Distance(transform.position, player.transform.position) <= activationRange)
         {
             isActive = true;
         }
+    }
+
+    protected void Die(Vector3 position)
+    {
+        Destroy(gameObject);
     }
 
     //Moves in the direction of player until it is in range and on sight

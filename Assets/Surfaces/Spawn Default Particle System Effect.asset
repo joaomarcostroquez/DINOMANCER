@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15504b3b9709a184d8cc0efe9c5ca677, type: 3}
   m_Name: Spawn Default Particle System Effect
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 5761816949013164528, guid: 98ec40780a890914e8bec661d00d352a, type: 3}
+  Prefab: {fileID: 0}
   Probability: 1
   RandomizeRotation: 0
   RandomizedRotationMultiplier: {x: 0, y: 0, z: 0}

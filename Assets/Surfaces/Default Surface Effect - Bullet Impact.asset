@@ -12,8 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f17e086601eb8e540bd85e7a0be7f2c3, type: 3}
   m_Name: Default Surface Effect - Bullet Impact
   m_EditorClassIdentifier: 
-  SpawnObjectEffects:
-  - {fileID: 11400000, guid: 0a1f5640318358e42a1711e5d25091f4, type: 2}
-  - {fileID: 11400000, guid: abe4de49553bed34fab94744da6d4a13, type: 2}
-  PlayAudioEffects:
-  - {fileID: 11400000, guid: 33cbfd65661ebc84f945d0301b07807c, type: 2}
+  SpawnObjectEffects: []
+  PlayAudioEffects: []

@@ -4419,11 +4419,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afb27053d9daf004c8fb32ce10ccc236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Surfaces:
-  - Albedo: {fileID: 0}
-    Surface: {fileID: 11400000, guid: 284733028d219444bad8828898158012, type: 2}
+  Surfaces: []
   DefaultPoolSizes: 10
-  DefaultSurface: {fileID: 11400000, guid: 284733028d219444bad8828898158012, type: 2}
+  DefaultSurface: {fileID: 0}
 --- !u!4 &2079633324
 Transform:
   m_ObjectHideFlags: 0

@@ -12,12 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e489a364f0bcb44c8ce009b708a42cd, type: 3}
   m_Name: Default Play Audio Effect - Bullet Impact
   m_EditorClassIdentifier: 
-  AudioSourcePrefab: {fileID: 8354761469421116220, guid: 4c37141a956650843a3bcdbfb772a452,
-    type: 3}
-  AudioClips:
-  - {fileID: 8300000, guid: b6de8e801a9927f4899a42af6ef41d0c, type: 3}
-  - {fileID: 8300000, guid: e7e813b632c2dbd438bd2d5c83c80062, type: 3}
-  - {fileID: 8300000, guid: 9881fc66370b51543950dc5d3a21114f, type: 3}
-  - {fileID: 8300000, guid: 2d21f3dc95325484b895da1fb64d3f46, type: 3}
-  - {fileID: 8300000, guid: 0975b1cec8210c24f9affb61e438f80d, type: 3}
-  VolumeRange: {x: 0.5, y: 0.75}
+  AudioSourcePrefab: {fileID: 0}
+  AudioClips: []
+  VolumeRange: {x: 0, y: 1}

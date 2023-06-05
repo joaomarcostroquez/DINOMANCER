@@ -9,6 +9,20 @@ public class PlayerHealth : Health
     [SerializeField] private TextMeshProUGUI txHealth;
     [SerializeField] private TextMeshProUGUI txMaxHealth;
 
+    public static PlayerHealth instance;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+
     protected override void Start()
     {
         base.Start();

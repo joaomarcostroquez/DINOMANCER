@@ -9,7 +9,7 @@ public class PlayerHealth : Health
     [SerializeField] private TextMeshProUGUI txHealth;
     [SerializeField] private TextMeshProUGUI txMaxHealth;
 
-    public static PlayerHealth instance;
+    /*public static PlayerHealth instance;
 
     private void Awake()
     {
@@ -21,7 +21,7 @@ public class PlayerHealth : Health
         {
             Destroy(this);
         }
-    }
+    }*/
 
     protected override void Start()
     {

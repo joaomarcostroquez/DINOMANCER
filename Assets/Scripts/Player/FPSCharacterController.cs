@@ -38,7 +38,7 @@ public class FPSCharacterController : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] private Camera _camera;
-    [SerializeField] private Health healthScript;   
+    [SerializeField] public Health healthScript;   
 
     private CharacterController _characterController;
     private Vector3 movementInput, treatedInput;

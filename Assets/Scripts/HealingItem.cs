@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class HealingItem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float healingAmount = 50;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.TryGetComponent<FPSCharacterController>(out FPSCharacterController playerScript))
+        {
+            if (playerScript.healthScript.ChangeHealth(healingAmount))
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }

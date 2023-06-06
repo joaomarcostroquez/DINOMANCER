@@ -4453,6 +4453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38ba67c7650c0c54b806ccee0d8b577c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healingAmount: 50
 --- !u!135 &1999815653
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4461,7 +4462,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999815651}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -4486,7 +4487,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 44cbd22f13c023c43b39cde6bb86cf61, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

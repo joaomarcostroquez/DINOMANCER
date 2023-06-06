@@ -32,10 +32,6 @@ public class FPSCharacterController : MonoBehaviour
     [Tooltip("Value used to detect if collided with ground or walls.")]
     [SerializeField] private float normalThreshold;
 
-    [Header("Contact damage enemy collision check")]
-    [SerializeField] private float contactDamageEnemyCollisionStartCheckingDistance = 3f;
-    [SerializeField] private float contactDamageEnemyCollisionCheckMoveDistance = 0.2f;
-
     [Header("Other")]
     [SerializeField] private Camera _camera;
     [SerializeField] public Health healthScript;   
@@ -56,7 +52,6 @@ public class FPSCharacterController : MonoBehaviour
     private bool isBeingKonckedBack = false;
     private Vector3 horizontalKnockbackDirection;
     private float horizontalKnockbackForce;
-    public List<Enemy> contactDamageEnemies = new List<Enemy>();
 
     private void Start()
     {
@@ -84,7 +79,6 @@ public class FPSCharacterController : MonoBehaviour
 
     private void Update()
     {
-        DetectContactDamageCollisions(1);
         RotateWithCamera();
         GetInput();
         TreatMovementInput();
@@ -94,11 +88,6 @@ public class FPSCharacterController : MonoBehaviour
         Jump();
         ApplyGravity();
         HorizontalMovement();
-    }
-
-    private void LateUpdate()
-    {
-        DetectContactDamageCollisions(-1);
     }
 
     private void GetInput()
@@ -286,50 +275,6 @@ public class FPSCharacterController : MonoBehaviour
 
         yield return null;
     }
-
-    //moves player back and forth in the nearest enemy's direction to force OnControllerColliderHit to detect the collision
-    private void DetectContactDamageCollisions(int direction)
-    {
-        if (contactDamageEnemies.Count == 0)
-            return;
-        
-        Enemy nearestContactDamageEnemy = contactDamageEnemies[0];
-
-        for (int i = 0; i < contactDamageEnemies.Count; i++)
-        {
-            if (contactDamageEnemies[i] == null)
-            {
-                contactDamageEnemies.RemoveAt(i);
-                return;
-            }
-            
-            Enemy enemy = contactDamageEnemies[i];
-
-            if (Vector3.Distance(transform.position, enemy.transform.position) < Vector3.Distance(transform.position, nearestContactDamageEnemy.transform.position))
-            {
-                nearestContactDamageEnemy = enemy;
-            }
-        }
-        
-        if (Vector3.Distance(transform.position, nearestContactDamageEnemy.transform.position) > contactDamageEnemyCollisionStartCheckingDistance)
-            return;
-        
-        Vector3 playerToEnemyDirection = Vector3.Normalize(nearestContactDamageEnemy.transform.position - transform.position);
-        playerToEnemyDirection = new Vector3(playerToEnemyDirection.x, 0, playerToEnemyDirection.z);
-
-        _characterController.Move(playerToEnemyDirection * contactDamageEnemyCollisionCheckMoveDistance * Time.fixedDeltaTime * direction);
-    }
-
-    /*private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        Enemy enemyScript = hit.gameObject.GetComponent<Enemy>();
-        
-        if(enemyScript != null)
-        {
-            Debug.Log("hit");
-            enemyScript.ContactDamage(this, healthScript);
-        }
-    }*/
 
     private void OnTriggerEnter(Collider other)
     {

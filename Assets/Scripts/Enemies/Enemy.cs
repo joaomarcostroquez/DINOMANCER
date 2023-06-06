@@ -16,6 +16,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected Vector2 contactDamageKnockback = Vector2.zero;
     [SerializeField] protected float contactDamageCoolDown = 1f;
 
+    [SerializeField] Vector2 itemDropForce = Vector2.one;
+    [SerializeField] List<ItemDropConfig> dropItems = new List<ItemDropConfig>();
+
     protected NavMeshAgent navMeshAgent;
     protected GameObject player;
     protected bool isActive = false;
@@ -49,7 +52,26 @@ public class Enemy : MonoBehaviour
 
     protected void Die(Vector3 position)
     {
+        Drop();
+
         Destroy(gameObject);
+    }
+
+    protected void Drop()
+    {
+        foreach(ItemDropConfig itemDrop in dropItems)
+        {
+            int ammount = Mathf.RoundToInt(Random.Range(itemDrop.minAmmount, itemDrop.maxAmmount));
+
+            for(int i = 0; i < ammount; i++)
+            {
+                GameObject droppedItem = Instantiate(itemDrop.item, transform.position + itemDrop.offset, Quaternion.identity);
+
+                Vector3 dropDirection = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up) * itemDropForce;
+
+                droppedItem.GetComponent<Rigidbody>().AddForce(dropDirection, ForceMode.VelocityChange);
+            }
+        }
     }
 
     //Moves in the direction of player until it is in range and on sight

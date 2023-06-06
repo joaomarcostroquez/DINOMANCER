@@ -2032,6 +2032,7 @@ GameObject:
   - component: {fileID: 867710354}
   - component: {fileID: 867710353}
   - component: {fileID: 867710352}
+  - component: {fileID: 867710357}
   m_Layer: 6
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -2204,6 +2205,20 @@ MonoBehaviour:
   maxHealth: 150
   txHealth: {fileID: 1247531328}
   txMaxHealth: {fileID: 1307517514}
+--- !u!136 &867710357
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867710348}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.58
+  m_Height: 2.16
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &884143087
 GameObject:
   m_ObjectHideFlags: 0

@@ -320,11 +320,20 @@ public class FPSCharacterController : MonoBehaviour
         _characterController.Move(playerToEnemyDirection * contactDamageEnemyCollisionCheckMoveDistance * Time.fixedDeltaTime * direction);
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+    /*private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         Enemy enemyScript = hit.gameObject.GetComponent<Enemy>();
         
         if(enemyScript != null)
+        {
+            Debug.Log("hit");
+            enemyScript.ContactDamage(this, healthScript);
+        }
+    }*/
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent<Enemy>(out Enemy enemyScript))
         {
             Debug.Log("hit");
             enemyScript.ContactDamage(this, healthScript);

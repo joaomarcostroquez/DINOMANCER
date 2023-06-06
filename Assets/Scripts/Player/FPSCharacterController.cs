@@ -275,6 +275,27 @@ public class FPSCharacterController : MonoBehaviour
 
         yield return null;
     }
+    
+    public void StartKnockBack(Vector2 knockback)
+    {
+        StartCoroutine(KnockBack(knockback));
+    }
+
+    private IEnumerator KnockBack(Vector2 knockback)
+    {
+        verticalVelocity = Mathf.Sqrt(knockback.y * -2f * currentGravity);
+
+        horizontalKnockbackDirection = treatedInput;
+
+        horizontalKnockbackForce = knockback.x;
+
+        isBeingKonckedBack = true;
+
+        jumpRequest = false;
+        isJumping = true;
+
+        yield return null;
+    }
 
     private void OnTriggerEnter(Collider other)
     {

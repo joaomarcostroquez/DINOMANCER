@@ -8,5 +8,5 @@ public class ItemDropConfig : ScriptableObject
     public GameObject item;
     public int minAmmount = 0;
     public int maxAmmount = 2;
-    public Vector3 offset = Vector3.zero;
+    public Vector3 offset = Vector3.up * 0.1f;
 }

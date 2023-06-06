@@ -562,6 +562,9 @@ MonoBehaviour:
   contactDamage: 20
   contactDamageKnockback: {x: 16, y: 4}
   contactDamageCoolDown: 2
+  itemDropForce: {x: 3, y: 2}
+  dropItems:
+  - {fileID: 11400000, guid: c1eaf799a83f98946b053c1ce0f09a5b, type: 2}
   rushAnticipationDuration: 1
   rushAimRotationMultiplier: 0.5
   rushRunDuration: 2

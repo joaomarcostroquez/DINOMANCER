@@ -15,4 +15,4 @@ MonoBehaviour:
   item: {fileID: 220785592226372965, guid: dd6020cf7460dd948a109e6c4ba24f4a, type: 3}
   minAmmount: 1
   maxAmmount: 3
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0.1, z: 0}

@@ -65,10 +65,10 @@ public class Enemy : MonoBehaviour
 
             for(int i = 0; i < ammount; i++)
             {
-                GameObject droppedItem = Instantiate(itemDrop.item, transform.position + itemDrop.offset, Quaternion.identity);
-
                 Vector3 dropDirection = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up) * itemDropForce;
 
+                GameObject droppedItem = Instantiate(itemDrop.item, transform.position + dropDirection.normalized * 0.3f + itemDrop.offset, Quaternion.identity);
+               
                 droppedItem.GetComponent<Rigidbody>().AddForce(dropDirection, ForceMode.VelocityChange);
             }
         }

@@ -132,14 +132,14 @@ public class RushingEnemy : Enemy
         yield return null;
     }
 
-    public override void ContactDamage(FPSCharacterController playerControllerScript, Health healthScript)
+    public override void ContactDamage(FPSCharacterController playerControllerScript)
     {
         if (!readyToDoContactDamage)
             return;
 
         _rigidbody.constraints = startingRigidbodyConstraints | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationY;
 
-        healthScript.ChangeHealth(-contactDamage);
+        playerControllerScript.healthScript.ChangeHealth(-contactDamage);
 
         playerControllerScript.StartKnockBack(transform.position, _rigidbody.velocity, contactDamageKnockback);
 

@@ -104,12 +104,12 @@ public class Enemy : MonoBehaviour
         return Vector2.Distance(new Vector2(a.x, a.z), new Vector2(b.x, b.z));
     }
 
-    public virtual void ContactDamage(FPSCharacterController playerControllerScript, Health healthScript)
+    public virtual void ContactDamage(FPSCharacterController playerControllerScript)
     {
         if (!readyToDoContactDamage)
             return;
 
-        healthScript.ChangeHealth(-contactDamage);
+        playerControllerScript.healthScript.ChangeHealth(-contactDamage);
 
         playerControllerScript.StartKnockBack(transform.position, navMeshAgent.velocity, contactDamageKnockback);
 

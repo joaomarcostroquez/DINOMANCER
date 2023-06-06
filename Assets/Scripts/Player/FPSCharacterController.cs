@@ -281,7 +281,16 @@ public class FPSCharacterController : MonoBehaviour
         if (other.TryGetComponent<Enemy>(out Enemy enemyScript))
         {
             Debug.Log("hit");
-            enemyScript.ContactDamage(this, healthScript);
+            enemyScript.ContactDamage(this);
+        }
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.TryGetComponent<Obstacle>(out Obstacle obstacleScript))
+        {
+            Debug.Log("hit");
+            obstacleScript.ContactDamage(this);
         }
     }
 }

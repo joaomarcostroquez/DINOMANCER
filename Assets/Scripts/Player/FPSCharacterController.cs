@@ -84,7 +84,7 @@ public class FPSCharacterController : MonoBehaviour
 
     private void Update()
     {
-        DetectContactDamageCollisions();
+        DetectContactDamageCollisions(1);
         RotateWithCamera();
         GetInput();
         TreatMovementInput();
@@ -96,9 +96,9 @@ public class FPSCharacterController : MonoBehaviour
         HorizontalMovement();
     }
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
-        DetectContactDamageCollisions();
+        DetectContactDamageCollisions(-1);
     }
 
     private void GetInput()
@@ -288,7 +288,7 @@ public class FPSCharacterController : MonoBehaviour
     }
 
     //moves player back and forth in the nearest enemy's direction to force OnControllerColliderHit to detect the collision
-    private void DetectContactDamageCollisions()
+    private void DetectContactDamageCollisions(int direction)
     {
         if (contactDamageEnemies.Count == 0)
             return;
@@ -317,14 +317,13 @@ public class FPSCharacterController : MonoBehaviour
         Vector3 playerToEnemyDirection = Vector3.Normalize(nearestContactDamageEnemy.transform.position - transform.position);
         playerToEnemyDirection = new Vector3(playerToEnemyDirection.x, 0, playerToEnemyDirection.z);
 
-        _characterController.Move(playerToEnemyDirection * contactDamageEnemyCollisionCheckMoveDistance * Time.fixedDeltaTime);
-        _characterController.Move(playerToEnemyDirection * contactDamageEnemyCollisionCheckMoveDistance * -Time.fixedDeltaTime);
+        _characterController.Move(playerToEnemyDirection * contactDamageEnemyCollisionCheckMoveDistance * Time.fixedDeltaTime * direction);
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         Enemy enemyScript = hit.gameObject.GetComponent<Enemy>();
-
+        
         if(enemyScript != null)
         {
             Debug.Log("hit");

@@ -2103,7 +2103,7 @@ MonoBehaviour:
   checkOffset: {x: 0, y: -0.64, z: 0}
   checkSphereRadius: 0.5
   normalThreshold: 20
-  contactDamageEnemyCollisionStartCheckingDistance: 3
+  contactDamageEnemyCollisionStartCheckingDistance: 4
   contactDamageEnemyCollisionCheckMoveDistance: 0.2
   _camera: {fileID: 1671064541}
   healthScript: {fileID: 867710356}

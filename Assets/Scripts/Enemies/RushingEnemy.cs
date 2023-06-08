@@ -22,6 +22,7 @@ public class RushingEnemy : Enemy
     private bool isRunning = false;
     private bool isBraking = false;
     private bool canStop = false;
+    private Vector3 rushTargetOffset = Vector3.zero;
 
     protected override void Start()
     {
@@ -38,7 +39,7 @@ public class RushingEnemy : Enemy
 
         if (available)
         {
-            if (isActive && MoveUntilPlayerInRangeAndOnSight())
+            if (isActive && MoveUntilPlayerInRangeAndOnSight(out rushTargetOffset))
                 StartCoroutine(Rush());
         }
     }
@@ -107,7 +108,7 @@ public class RushingEnemy : Enemy
         else if (isBraking)
             _rigidbody.AddForce(transform.forward * -rushBrakingAcceleration, ForceMode.Acceleration);
         else
-            LookAtTarget(_rigidbody, new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z), rushAimRotationMultiplier);
+            LookAtTarget(_rigidbody, new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z) + rushTargetOffset, rushAimRotationMultiplier);
     }
 
     private IEnumerator StopRush()

@@ -70,16 +70,18 @@ public class Enemy : MonoBehaviour
     }
 
     //Moves in the direction of player until it is in range and on sight
-    protected bool MoveUntilPlayerInRangeAndOnSight()
+    protected bool MoveUntilPlayerInRangeAndOnSight(out Vector3 offset)
     {
         NavMeshHit hit;
         bool playerOnSight = false;
+        offset = Vector3.zero;
 
         foreach(Vector3 checkPosition in navRaycastsAroundPlayerDirections)
         {
             if(!navMeshAgent.Raycast(player.transform.position + checkPosition * navRaycastAroundPlayerDistance, out hit))
             {
                 playerOnSight = true;
+                offset = checkPosition;
                 break;
             }
         }

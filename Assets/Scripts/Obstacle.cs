@@ -17,7 +17,8 @@ public class Obstacle : MonoBehaviour
 
         playerControllerScript.healthScript.ChangeHealth(-contactDamage);
 
-        playerControllerScript.StartKnockBack(contactDamageKnockback);
+        //playerControllerScript.StartKnockBack(contactDamageKnockback);
+        playerControllerScript.StartKnockBack(transform.position, Vector3.zero, contactDamageKnockback);
 
         StartCoroutine(ContactDamageCooldown());
     }

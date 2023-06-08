@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38ba67c7650c0c54b806ccee0d8b577c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healingAmount: 50
+  healingAmount: 25
   parent: {fileID: 220785592226372965}
 --- !u!114 &6061219856527601239
 MonoBehaviour:

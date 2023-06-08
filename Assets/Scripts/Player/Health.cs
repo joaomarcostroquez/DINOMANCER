@@ -5,12 +5,14 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] protected float maxHealth = 100;
+    [SerializeField] protected float startingHealthOffset = 0;
 
     protected float health;
 
     protected virtual void Start()
     {
-        health = maxHealth;
+        health = maxHealth + startingHealthOffset;
+        startingHealthOffset = 0;
     }
 
     public float GetHealth()

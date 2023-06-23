@@ -22,6 +22,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   UseDitherPattern: 1
-  DitherPattern: {fileID: 11400000, guid: f1c2af192f33ce74cb990a7f1b8df5ae, type: 2}
-  GeneratedFileName: 
-  AutoGenerateFileName: 1
+  DitherPattern: {fileID: 11400000, guid: e0e4c44b183312e4da982a65bfbb791a, type: 2}
+  GeneratedFileName: Palette_BW_RowsCrude
+  AutoGenerateFileName: 0

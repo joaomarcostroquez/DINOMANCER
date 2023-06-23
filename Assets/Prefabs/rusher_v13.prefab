@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3326933038446708774}
   - component: {fileID: 4598191865620073952}
   - component: {fileID: 5508142812745770158}
+  - component: {fileID: 8614137539704849835}
   m_Layer: 0
   m_Name: Arm_l
   m_TagString: Untagged
@@ -83,6 +84,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8614137539704849835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312083198806059841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2acf0adf62718e4199b68a60cb21ee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 12
+  UseRandomUID: 0
+  UseRootUID: 0
+  UseRootColor: 0
+  Color: {r: 1, g: 1, b: 1, a: 0.2509804}
 --- !u!1 &1623957892276672269
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +112,7 @@ GameObject:
   - component: {fileID: 8193055017521770633}
   - component: {fileID: 3864775991207618831}
   - component: {fileID: 7316489729193951290}
+  - component: {fileID: 117353672701601469}
   m_Layer: 0
   m_Name: Teeth
   m_TagString: Untagged
@@ -166,6 +185,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &117353672701601469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623957892276672269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2acf0adf62718e4199b68a60cb21ee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 16
+  UseRandomUID: 0
+  UseRootUID: 0
+  UseRootColor: 0
+  Color: {r: 1, g: 1, b: 1, a: 0.5019608}
 --- !u!1 &4044537807187562864
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +267,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 9b075adb46c51ec4fa76f8fa36e3506f, type: 2}
-  - {fileID: 2100000, guid: 17f1e076bfed29e4d9e24da46cb759b3, type: 2}
+  - {fileID: 2100000, guid: 0376c06602ce8ca43b9989fc917451d8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -381,6 +417,7 @@ GameObject:
   - component: {fileID: 4106661370331246504}
   - component: {fileID: 818061065526098705}
   - component: {fileID: 755571461633839475}
+  - component: {fileID: 4910308182485934783}
   m_Layer: 0
   m_Name: Arm_r
   m_TagString: Untagged
@@ -453,6 +490,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4910308182485934783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4801462163478573798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2acf0adf62718e4199b68a60cb21ee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 14
+  UseRandomUID: 0
+  UseRootUID: 0
+  UseRootColor: 0
+  Color: {r: 1, g: 1, b: 1, a: 0.2509804}
 --- !u!1 &4909714829650007158
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,6 +518,7 @@ GameObject:
   - component: {fileID: 8109495999833901209}
   - component: {fileID: 5410451055969463914}
   - component: {fileID: 6604244335315302559}
+  - component: {fileID: 1642056316808566924}
   m_Layer: 0
   m_Name: Jaw
   m_TagString: Untagged
@@ -537,6 +592,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1642056316808566924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4909714829650007158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2acf0adf62718e4199b68a60cb21ee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 14
+  UseRandomUID: 0
+  UseRootUID: 0
+  UseRootColor: 0
+  Color: {r: 1, g: 1, b: 1, a: 0.2509804}
 --- !u!1 &7479677989838337894
 GameObject:
   m_ObjectHideFlags: 0

@@ -2496,6 +2496,16 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1856582242964549220, guid: 9d7ad67aef44d7b48ad341125bed7f56,
+        type: 3}
+      propertyPath: Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856582242964549220, guid: 9d7ad67aef44d7b48ad341125bed7f56,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4424408894247052921, guid: 9d7ad67aef44d7b48ad341125bed7f56,
         type: 3}
       propertyPath: m_RootOrder
@@ -2576,7 +2586,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.58
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1856582242964549220, guid: 9d7ad67aef44d7b48ad341125bed7f56, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9d7ad67aef44d7b48ad341125bed7f56, type: 3}
 --- !u!1001 &635439510
 PrefabInstance:
@@ -7988,7 +7999,7 @@ GameObject:
   - component: {fileID: 2047635558}
   - component: {fileID: 2047635557}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Blockout_Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

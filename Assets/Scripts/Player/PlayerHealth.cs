@@ -28,7 +28,7 @@ public class PlayerHealth : Health
         base.Start();
 
         txHealth.text = Mathf.RoundToInt(health).ToString();
-        txMaxHealth.text = " / " + Mathf.RoundToInt(maxHealth).ToString();
+        txMaxHealth.text = " / " + Mathf.RoundToInt(maxHealth).ToString() + " +";
     }
 
     private void Update()
@@ -57,6 +57,6 @@ public class PlayerHealth : Health
     {
         base.OnMaxHealthChanged(previousHealth);
 
-        txMaxHealth.text = " / " + Mathf.RoundToInt(maxHealth).ToString();
+        txMaxHealth.text = " / " + Mathf.RoundToInt(maxHealth).ToString() + " +";
     }
 }

@@ -1653,7 +1653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &300342976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1678,8 +1678,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 8, z: 0.5}
-  m_Center: {x: -1.5, y: 4, z: 0.25}
+  m_Size: {x: 17.472824, y: 2.3218575, z: 56.668167}
+  m_Center: {x: -2.0984726, y: 1.1609287, z: 11.440666}
 --- !u!64 &300342978
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1996,7 +1996,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300342975}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: -27, z: 202.5}
+  m_LocalPosition: {x: -41, y: -42.5, z: 227}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2514,17 +2514,17 @@ PrefabInstance:
     - target: {fileID: 4424408894247052921, guid: 9d7ad67aef44d7b48ad341125bed7f56,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 4424408894247052921, guid: 9d7ad67aef44d7b48ad341125bed7f56,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4424408894247052921, guid: 9d7ad67aef44d7b48ad341125bed7f56,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2
+      value: -14
       objectReference: {fileID: 0}
     - target: {fileID: 4424408894247052921, guid: 9d7ad67aef44d7b48ad341125bed7f56,
         type: 3}
@@ -2579,12 +2579,12 @@ PrefabInstance:
     - target: {fileID: 4424408895096820939, guid: 9d7ad67aef44d7b48ad341125bed7f56,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.58
+      value: 1.5799999
       objectReference: {fileID: 0}
     - target: {fileID: 4424408895777948993, guid: 9d7ad67aef44d7b48ad341125bed7f56,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.58
+      value: 1.5799999
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1856582242964549220, guid: 9d7ad67aef44d7b48ad341125bed7f56, type: 3}
@@ -4061,7 +4061,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh27038
+  m_Name: pb_Mesh27638
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5367,11 +5367,13 @@ MonoBehaviour:
 
     R -> Restart
 
+    Esc -> Close game
+
 
     Green = +Health
 
-    Red = Damage (enemies
-    and obstacles)'
+    Red
+    = Damage (enemies and obstacles)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5380,8 +5382,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6872,7 +6874,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh46962
+  m_Name: pb_Mesh27836
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7322,7 +7324,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh46860
+  m_Name: pb_Mesh27734
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7493,6 +7495,7 @@ GameObject:
   - component: {fileID: 1965413703}
   - component: {fileID: 1965413702}
   - component: {fileID: 1965413706}
+  - component: {fileID: 1965413707}
   m_Layer: 5
   m_Name: TutorialCanvas
   m_TagString: Untagged
@@ -7592,6 +7595,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f11831a14613bc749b664d981c3d244d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1965413707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965413701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15601a77a85a0c44ca34e75c4a5034c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!850595691 &1982533469
@@ -16525,7 +16540,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh46978
+  m_Name: pb_Mesh27852
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17242,7 +17257,8 @@ MonoBehaviour:
   m_text: 'Thank you for finishing this demo!
 
 
-    (Press R to restart the level)'
+    (Press R to restart the level
+    or Esc to quit)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -17252,7 +17268,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

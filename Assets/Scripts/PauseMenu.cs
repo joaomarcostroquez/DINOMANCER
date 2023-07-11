@@ -10,6 +10,9 @@ public class PauseMenu : MonoBehaviour
     GameObject pauseMenuUI;
 
     [SerializeField]
+    GameObject virtualCamera;
+
+    [SerializeField]
     LoadNextScene _loadNextScene;
 
     bool isPaused = false;
@@ -35,6 +38,7 @@ public class PauseMenu : MonoBehaviour
             {
                 pauseMenuUI.SetActive(true);
                 Time.timeScale = 0;
+                if (virtualCamera != null) virtualCamera.SetActive(false);
                 isPaused = true;
             }
         }
@@ -44,6 +48,7 @@ public class PauseMenu : MonoBehaviour
     public void Continue()
     {
         pauseMenuUI.SetActive(false);
+        if (virtualCamera != null) virtualCamera.SetActive(true);
         Time.timeScale = 1;
         isPaused = false;
     }

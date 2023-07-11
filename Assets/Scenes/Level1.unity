@@ -2583,6 +2583,11 @@ PrefabInstance:
       propertyPath: startingHealthOffset
       value: -25
       objectReference: {fileID: 0}
+    - target: {fileID: 4424408894433794832, guid: 9d7ad67aef44d7b48ad341125bed7f56,
+        type: 3}
+      propertyPath: checkSphereRadius
+      value: 0.45
+      objectReference: {fileID: 0}
     - target: {fileID: 4424408895096820939, guid: 9d7ad67aef44d7b48ad341125bed7f56,
         type: 3}
       propertyPath: m_LocalPosition.y

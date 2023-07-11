@@ -9,7 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: AlfaSlabOne-Regular SDF Material
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - UNDERLAY_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -85,7 +86,7 @@ Material:
     - _StencilWriteMask: 255
     - _TextureHeight: 512
     - _TextureWidth: 512
-    - _UnderlayDilate: 1
+    - _UnderlayDilate: 0.75
     - _UnderlayOffsetX: 0
     - _UnderlayOffsetY: 0
     - _UnderlaySoftness: 0
@@ -164,9 +165,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: AlfaSlabOne-Regular_Outlined SDF
   m_EditorClassIdentifier: 
-  hashCode: 1091211956
+  hashCode: -1465507057
   material: {fileID: -6635365526514597743}
-  materialHashCode: -853378284
+  materialHashCode: -1489715633
   m_Version: 1.1.0
   m_SourceFontFileGUID: c2c7b58ac71308f4287632fe25f178c6
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: c2c7b58ac71308f4287632fe25f178c6,

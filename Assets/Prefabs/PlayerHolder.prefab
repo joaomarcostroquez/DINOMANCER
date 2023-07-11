@@ -781,7 +781,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 145
   checkOffset: {x: 0, y: -0.64, z: 0}
-  checkSphereRadius: 0.45
+  checkSphereRadius: 0.5
   normalThreshold: 20
   _camera: {fileID: 4424408895777948994}
   healthScript: {fileID: 4424408894433794827}

@@ -3896,7 +3896,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002465384}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -4133,7 +4133,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh27660
+  m_Name: pb_Mesh27652
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5428,18 +5428,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'WASD -> Walk
+  m_text: 'CONTROLS:
+
+
+    WASD -> Walk
 
     Shift -> Run (Toggle)
 
-    Space -> Jump
+    Space ->
+    Jump
 
-    Left Mouse
-    Click -> Shoot
+    Left Mouse Click -> Shoot
 
-    R -> Restart
-
-    Esc -> Close game'
+    Esc -> Pause Menu'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f8dfcc73d70bb9d4da25be914739c62f, type: 2}
   m_sharedMaterial: {fileID: -6635365526514597743, guid: f8dfcc73d70bb9d4da25be914739c62f,
@@ -17372,8 +17373,7 @@ MonoBehaviour:
   m_text: 'Thank you for finishing this demo!
 
 
-    (Press R to restart the level
-    or Esc to quit)'
+    (Press Esc to activate the Menu)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f8dfcc73d70bb9d4da25be914739c62f, type: 2}
   m_sharedMaterial: {fileID: -6635365526514597743, guid: f8dfcc73d70bb9d4da25be914739c62f,
@@ -17409,7 +17409,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

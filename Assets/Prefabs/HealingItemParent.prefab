@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 220785592226372960}
   - component: {fileID: 220785592226372963}
   - component: {fileID: 220785592226372962}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: HealingItemParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,6 +265,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: healthPack_v1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 717b87ce0df0b024b887bb7b9ef4a0c0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 717b87ce0df0b024b887bb7b9ef4a0c0, type: 3}
 --- !u!4 &2880541208205549843 stripped
@@ -293,6 +298,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 717b87ce0df0b024b887bb7b9ef4a0c0, type: 3}
+--- !u!95 &5201934330096286818
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3220755821776812969}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a3e710afa2aaaba4c979934e1565e531, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &3690470872015296232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,24 +349,3 @@ MonoBehaviour:
   linearRotation: {x: 0, y: 0, z: 60}
   randomRotationDirection: 1
   frameRate: 6
---- !u!95 &5201934330096286818
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3220755821776812969}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a3e710afa2aaaba4c979934e1565e531, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0

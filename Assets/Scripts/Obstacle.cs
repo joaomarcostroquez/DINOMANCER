@@ -10,7 +10,7 @@ public class Obstacle : MonoBehaviour
 
     protected bool readyToDoContactDamage = true;
 
-    public void ContactDamage(FPSCharacterController playerControllerScript)
+    public void ContactDamage(Vector3 obstaclePosition, FPSCharacterController playerControllerScript)
     {
         if (!readyToDoContactDamage)
             return;
@@ -18,7 +18,7 @@ public class Obstacle : MonoBehaviour
         playerControllerScript.healthScript.ChangeHealth(-contactDamage);
 
         //playerControllerScript.StartKnockBack(contactDamageKnockback);
-        playerControllerScript.StartKnockBack(transform.position, Vector3.zero, contactDamageKnockback);
+        playerControllerScript.StartKnockBack(obstaclePosition, Vector3.zero, contactDamageKnockback);
 
         StartCoroutine(ContactDamageCooldown());
     }

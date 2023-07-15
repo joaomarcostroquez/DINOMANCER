@@ -83,6 +83,7 @@ public class RushingEnemy : Enemy
         _rigidbody.isKinematic = false;
         //_rigidbody.velocity = previousVelocity;
         _rigidbody.velocity = Vector3.zero;
+        _rigidbody.angularVelocity = Vector3.zero;
 
         _rigidbody.AddForce(Vector3.Normalize(player.transform.position - transform.position) * -rushBackstep, ForceMode.VelocityChange);
 
@@ -100,13 +101,20 @@ public class RushingEnemy : Enemy
     private void UpdateRush()
     {
         if (canStop && _rigidbody.velocity.magnitude <= rushStopSpeed)
+        {
             StartCoroutine(StopRush());
-
+        }         
 
         if (isRunning)
+        {
+            _rigidbody.angularVelocity = Vector3.zero;
             _rigidbody.AddForce(transform.forward * rushAcceleration, ForceMode.Acceleration);
+        }
         else if (isBraking)
+        {
+            _rigidbody.angularVelocity = Vector3.zero;
             _rigidbody.AddForce(transform.forward * -rushBrakingAcceleration, ForceMode.Acceleration);
+        }
         else
             LookAtTarget(_rigidbody, new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z) + rushTargetOffset, rushAimRotationMultiplier);
     }
@@ -123,6 +131,7 @@ public class RushingEnemy : Enemy
         yield return new WaitForSeconds(rushCooldownTimer);
 
         _rigidbody.velocity = Vector3.zero;
+        _rigidbody.angularVelocity = Vector3.zero;
         _rigidbody.isKinematic = true;
 
         navMeshAgent.enabled = true;

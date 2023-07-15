@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 315120642281040597}
   - component: {fileID: 1534331999251882215}
   - component: {fileID: 7795389175543884602}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_2|Spike|Dupli|7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 631127271530305532}
   - component: {fileID: 1601710943209338240}
   - component: {fileID: 3417450157407766867}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_2.002|Spike|Dupli|
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 7217779746236386710}
   - component: {fileID: 5408922917852374726}
   - component: {fileID: 3223697072236559799}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_2.002|Spike|Dupli|7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 4733082655111733611}
   - component: {fileID: 1815790573613481713}
   - component: {fileID: 4751464378031151660}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_2.002|Spike|Dupli|5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 5046629640324310929}
   - component: {fileID: 337017691334444142}
   - component: {fileID: 2695836881553960272}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_2|Spike|Dupli|
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 2806816594802234804}
   - component: {fileID: 9200427367755251454}
   - component: {fileID: 1161251618566522028}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_2.002|Spike|Dupli|1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +509,7 @@ GameObject:
   - component: {fileID: 6450959203936895583}
   - component: {fileID: 2310115102753613218}
   - component: {fileID: 1235589128326792971}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_2|Spike|Dupli|6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,7 +593,8 @@ GameObject:
   - component: {fileID: 944027095651228392}
   - component: {fileID: 3097681517882797602}
   - component: {fileID: 4412605471248575604}
-  m_Layer: 0
+  - component: {fileID: 8928788693708198438}
+  m_Layer: 9
   m_Name: cactus_v3_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -608,7 +609,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3602264652146135031}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.49727476, y: 0.4066201, z: 0.2782369}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -691,6 +692,20 @@ MonoBehaviour:
   UseRootUID: 0
   UseRootColor: 0
   Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!64 &8928788693708198438
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3602264652146135031}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4234429929303287575, guid: adb020d79d9b7fa4e9ea610124180a32, type: 3}
 --- !u!1 &4239093385806259399
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,7 +717,7 @@ GameObject:
   - component: {fileID: 8735348386423217584}
   - component: {fileID: 2638014410323944781}
   - component: {fileID: 7236735273196721323}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_2.002|Spike|Dupli|6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -785,7 +800,7 @@ GameObject:
   - component: {fileID: 3786730776814482072}
   - component: {fileID: 405489490783088518}
   - component: {fileID: 4783501153922736090}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_2|Spike|Dupli|5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -869,7 +884,8 @@ GameObject:
   - component: {fileID: 3463690586847771811}
   - component: {fileID: 8040084878216827270}
   - component: {fileID: 4412605472212081710}
-  m_Layer: 0
+  - component: {fileID: 6098024490844003576}
+  m_Layer: 9
   m_Name: cactus_2.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -966,6 +982,20 @@ MonoBehaviour:
   UseRootUID: 0
   UseRootColor: 0
   Color: {r: 1, g: 1, b: 1, a: 0.5019608}
+--- !u!64 &6098024490844003576
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4686625915723453514}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3635234144650112391, guid: adb020d79d9b7fa4e9ea610124180a32, type: 3}
 --- !u!1 &6148106653821373274
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,7 +1007,7 @@ GameObject:
   - component: {fileID: 4816333183709256753}
   - component: {fileID: 7657356527329515362}
   - component: {fileID: 7094603938778755724}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_2.002|Spike|Dupli|2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1060,7 +1090,7 @@ GameObject:
   - component: {fileID: 8465215732330117674}
   - component: {fileID: 5922635087079572753}
   - component: {fileID: 4785626930947146181}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_2.002|Spike|Dupli|4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1143,7 +1173,7 @@ GameObject:
   - component: {fileID: 8464361806277385125}
   - component: {fileID: 1923513946287915378}
   - component: {fileID: 8129059375549715131}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_2|Spike|Dupli|2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1226,7 +1256,7 @@ GameObject:
   - component: {fileID: 442154478369196612}
   - component: {fileID: 7095840681385085707}
   - component: {fileID: 4718601964409210464}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_2|Spike|Dupli|4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1309,7 +1339,7 @@ GameObject:
   - component: {fileID: 4776224741680512580}
   - component: {fileID: 7549046999013504786}
   - component: {fileID: 7714848446216851660}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_2|Spike|Dupli|1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1392,7 +1422,7 @@ GameObject:
   - component: {fileID: 58482803890440574}
   - component: {fileID: 6777248495732336667}
   - component: {fileID: 5720254526182560602}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_2.002|Spike|Dupli|3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1475,7 +1505,7 @@ GameObject:
   - component: {fileID: 7866555000742511822}
   - component: {fileID: 2639158045790836337}
   - component: {fileID: 7147957772408649464}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_2|Spike|Dupli|3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

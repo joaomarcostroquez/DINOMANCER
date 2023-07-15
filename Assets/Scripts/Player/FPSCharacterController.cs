@@ -308,10 +308,15 @@ public class FPSCharacterController : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.TryGetComponent<Obstacle>(out Obstacle obstacleScript))
+        if(hit.gameObject.layer == LayerMask.NameToLayer("Cactus"))
         {
-            Debug.Log("hit");
-            obstacleScript.ContactDamage(this);
+            Obstacle obstacleScript = hit.gameObject.GetComponentInParent<Obstacle>();
+            
+            if (obstacleScript != null)
+            {
+                Debug.Log("hit");
+                obstacleScript.ContactDamage(this);
+            }
         }
     }
 }

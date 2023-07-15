@@ -35,6 +35,7 @@ public class FPSCharacterController : MonoBehaviour
     [Header("Other")]
     [SerializeField] private Camera _camera;
     [SerializeField] public Health healthScript;   
+    [SerializeField] private float obstacleHitCooldown = 1.5f;
 
     private CharacterController _characterController;
     private Vector3 movementInput, treatedInput;
@@ -52,6 +53,7 @@ public class FPSCharacterController : MonoBehaviour
     private bool isBeingKonckedBack = false;
     private Vector3 horizontalKnockbackDirection;
     private float horizontalKnockbackForce;
+    private float lastObstacleHitTime = 0f;
 
     private void Start()
     {
@@ -308,13 +310,14 @@ public class FPSCharacterController : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+        if(Time.time >= lastObstacleHitTime + obstacleHitCooldown && hit.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
         {
             Obstacle obstacleScript = hit.gameObject.GetComponentInParent<Obstacle>();
 
             if (obstacleScript != null)
             {
                 Debug.Log("hit");
+                lastObstacleHitTime = Time.time;
                 obstacleScript.ContactDamage(hit.transform.position, this);
             }
         }

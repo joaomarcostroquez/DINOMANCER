@@ -138,7 +138,7 @@ PrefabInstance:
     - target: {fileID: 7592189633081117680, guid: 1529298d26c0c8340a47617e9eb56dcf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.95
+      value: -32.37
       objectReference: {fileID: 0}
     - target: {fileID: 7592189633081117680, guid: 1529298d26c0c8340a47617e9eb56dcf,
         type: 3}
@@ -2558,6 +2558,11 @@ PrefabInstance:
         type: 3}
       propertyPath: checkSphereRadius
       value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4424408894433794832, guid: 9d7ad67aef44d7b48ad341125bed7f56,
+        type: 3}
+      propertyPath: obstacleHitCooldown
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4424408895096820939, guid: 9d7ad67aef44d7b48ad341125bed7f56,
         type: 3}

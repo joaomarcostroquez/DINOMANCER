@@ -14,6 +14,7 @@ public class RushingEnemy : Enemy
     [SerializeField] private float rushBackstep = 2f;
     [SerializeField] private float rushCanStopTimer = 0.2f;
     [SerializeField] private float rushCooldownTimer = 1f;
+    [SerializeField] private Animator animator;
 
     private Rigidbody _rigidbody;
     private RigidbodyConstraints startingRigidbodyConstraints;
@@ -31,6 +32,9 @@ public class RushingEnemy : Enemy
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.isKinematic = true;
         startingRigidbodyConstraints = _rigidbody.constraints;
+
+        if (animator == null)
+            animator = GetComponentInChildren<Animator>();
     }
 
     protected override void Update()
@@ -41,6 +45,17 @@ public class RushingEnemy : Enemy
         {
             if (isActive && MoveUntilPlayerInRangeAndOnSight(out rushTargetOffset))
                 StartCoroutine(Rush());
+            else
+            {
+                if(navMeshAgent.velocity.magnitude > 0.1f)
+                {
+                    animator.SetBool("isRunning", true);
+                }
+                else
+                {
+                    animator.SetBool("isRunning", false);
+                }                    
+            }
         }
     }
 
@@ -100,6 +115,8 @@ public class RushingEnemy : Enemy
 
     private void UpdateRush()
     {
+        animator.SetBool("isRunning", isRunning);
+
         if (canStop && _rigidbody.velocity.magnitude <= rushStopSpeed)
         {
             StartCoroutine(StopRush());
@@ -123,6 +140,7 @@ public class RushingEnemy : Enemy
     {
         StopCoroutine(Rush());
         isRushing = false;
+        animator.SetBool("isRunning", false);
 
         _rigidbody.constraints = startingRigidbodyConstraints;
 

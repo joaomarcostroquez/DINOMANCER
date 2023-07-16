@@ -582,7 +582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RecenterTarget: 0
   m_VerticalAxis:
-    Value: -90
+    Value: 0
     m_SpeedMode: 1
     m_MaxSpeed: 5
     m_AccelTime: 0.1
@@ -606,7 +606,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_HorizontalAxis:
-    Value: -70.72513
+    Value: 0
     m_SpeedMode: 1
     m_MaxSpeed: 5
     m_AccelTime: 0.1
@@ -1095,7 +1095,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4424408895777948998}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.16969463, z: -0, w: 0.9854967}
   m_LocalPosition: {x: 0, y: 1.5800002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

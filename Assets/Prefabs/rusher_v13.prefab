@@ -298,7 +298,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3997586729148830451}
-  - component: {fileID: 3574852023442839894}
+  - component: {fileID: 7382862498277344223}
   m_Layer: 0
   m_Name: rusher_v13
   m_TagString: Untagged
@@ -313,7 +313,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4337414353348921417}
-  m_LocalRotation: {x: 0, y: 0.70710677, z: 0.70710677, w: 0}
+  m_LocalRotation: {x: 0.03084362, y: 0.7064338, z: 0.7064338, w: 0.03084362}
   m_LocalPosition: {x: -11, y: -0, z: -27.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -323,8 +323,8 @@ Transform:
   - {fileID: 4022072157643192731}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 90, z: 90}
---- !u!95 &3574852023442839894
+  m_LocalEulerAnglesHint: {x: -85, y: 90, z: 90}
+--- !u!95 &7382862498277344223
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

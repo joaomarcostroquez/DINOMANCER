@@ -15,6 +15,6 @@ MonoBehaviour:
   SourceClips:
   - {fileID: 7400000, guid: bec2c89a7af9a104891cedc11a9fbe4a, type: 2}
   KeyframeMode: 0
-  KeyframeRate: 12
+  KeyframeRate: 6
   ManualKeyframeTimes: []
   FixedTimeDelay: 0.1

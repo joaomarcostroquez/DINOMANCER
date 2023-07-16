@@ -34,6 +34,7 @@ public class FPSCharacterController : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] private Camera _camera;
+    [SerializeField] private Animator animator;
     [SerializeField] public Health healthScript;   
     [SerializeField] private float obstacleHitCooldown = 1.5f;
 
@@ -90,6 +91,7 @@ public class FPSCharacterController : MonoBehaviour
         Jump();
         ApplyGravity();
         HorizontalMovement();
+        SetAnimatorParams();
     }
 
     private void GetInput()
@@ -240,6 +242,24 @@ public class FPSCharacterController : MonoBehaviour
             verticalVelocity = Mathf.Clamp(verticalVelocity + defaultGravity * Time.deltaTime, -2f, Mathf.Infinity);
 
         _characterController.Move(Vector3.up * verticalVelocity * Time.deltaTime);
+    }
+
+    private void SetAnimatorParams()
+    {
+        if (/*isGrounded*/ !isJumping)
+        {
+            if (treatedInput.magnitude > 0.1f)
+            {
+                if (isRunning)
+                    animator.SetFloat("Speed", 2f);
+                else
+                    animator.SetFloat("Speed", 1f);
+            }
+            else
+                animator.SetFloat("Speed", 0f);
+        }
+        else
+            animator.SetFloat("Speed", 0f);
     }
 
     private IEnumerator RequestJump()

@@ -9,6 +9,7 @@ public class PlayerGunSelector : MonoBehaviour
     [SerializeField] private Camera playerCamera;
     [SerializeField] private List<GunScriptableObject> guns;
     //[SerializeField] PlayerIK inverseKinematics;
+    //public Animator animator;
 
     [Space]
     [Header("Runtime Filled")]
@@ -26,5 +27,10 @@ public class PlayerGunSelector : MonoBehaviour
 
         activeGun = gun;
         gun.Spawn(gunParent, this, playerCamera);
+
+        /*if(animator == null)
+        {
+            animator = gunParent.GetComponent<Animator>();
+        }*/
     }
 }

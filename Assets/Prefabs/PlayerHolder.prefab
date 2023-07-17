@@ -804,6 +804,7 @@ MonoBehaviour:
   playerCamera: {fileID: 4424408895777948994}
   guns:
   - {fileID: 11400000, guid: 63c038a45f7aa09428b84703c22d319c, type: 2}
+  animator: {fileID: 7681401000058219208}
   activeGun: {fileID: 0}
 --- !u!114 &4424408894433794829
 MonoBehaviour:

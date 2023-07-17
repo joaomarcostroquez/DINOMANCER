@@ -21,6 +21,7 @@ public class GunScriptableObject : ScriptableObject
     private ParticleSystem shootSystem;
     private Camera playerCamera;
     private ObjectPool<TrailRenderer> trailPool;
+    private Animator animator;
 
     public void Spawn(Transform parent, MonoBehaviour activeMonoBehaviour, Camera camera)
     {
@@ -35,6 +36,8 @@ public class GunScriptableObject : ScriptableObject
         shootSystem = model.GetComponentInChildren<ParticleSystem>();
         //playerCamera = activeMonoBehaviour.GetComponentInChildren<Camera>();
         playerCamera = camera;
+
+        animator = parent.GetComponent<Animator>();
     }
 
     public void Shoot()
@@ -43,6 +46,7 @@ public class GunScriptableObject : ScriptableObject
         {
             lastShootTime = Time.time;
             shootSystem.Play();
+            animator.SetTrigger("Shoot");
             Vector3 shootDirection = playerCamera.transform.forward
                 + new Vector3(
                     Random.Range(

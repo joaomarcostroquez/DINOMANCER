@@ -7775,6 +7775,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 5520475067416526975, guid: 0708fb818da07af4db796e9531e791d9,
+        type: 3}
+      propertyPath: musicFade
+      value: 
+      objectReference: {fileID: 291498658}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0708fb818da07af4db796e9531e791d9, type: 3}
 --- !u!43 &1944050100
